@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#251f21"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAA7RUlEQVR42t19edQdR3FvVffMXb9NuyzJsiTL8o6N8W4MJmGzAQOOMUkgYcmBwIHAI2Tl5ZwkLy/LgxDCIY8khCTPOQESOEBYHHYbYhs7eMGyjSxLlm2sff3Wu82d7np/zHJnepnl3u8TsvtI3723Z6a6u6q6flW9DZ776d+FZKLwf+Jn6huRenfyduVydD2LICgEFZIGgmpOilB29fQKmQiq1UoWkb63cJPtRRAQAJZuMqGhpiaWki5CMInYkONk1SNXM1ROLYJmkI0aZGiGhZqWQwaqZZSPIO9morSgc1mawV9LTppoLkuzi7BqBhCAk861NkPjg0kzSP9VUDNMepQnCaIMamhgkyq3NKcsbDKy3JxDZGpy4c6Wqxm5nc0kkZRZMrDU1mSCgXLkKrhFH23NGEIzsjhv6tBooqrUwMoGa3uNtaB83SAVHGw0TULOKltpVRaaqPUBUDWjCJoMauhkcmp4P6OMqlm7QyKjuJ+h0yC9jvmmviSaAGAJPwMAUmIrhCZUHE0S4FYeTQaZziKgieF6CZuR48eU8DOsfkwW63M1I+PZKCcHTUATRsojLoQmZe36QD2sPceKJvGnk2FqjN0huxlDoEkWOpj8DDRTg7ArDokmxWyGnuwOo7kWZL6WRTDbz9A4FPxUDEcGSzIIOqab7JXKdqAKl2qib+Sp0SOzVdigGWmPz9jIBMNSmlokah0RTfLoh7UYMWrNqoyhtQkajp5lqufiognEtthKvwSagEFxzd0mp3pooa6zI2pBZtQKaWGoml3Iz0gRLYAmtooAlNUMABg4pMbqqM+ac0aNTUaJWsGUo8stz8/ItpF6GsLPKK8ZZaPWrNoX9jOS15zi+mhrRkmbkQflJi6XjVq1+zMRMIfvZjSxNFnJsWtzJkvz0cTyeFk0yZARJHwOC5pApq6ULpUij3LAA42gEU3slTHlWF0ZS/WssjPUp6SfsdRoYohadWpmJljQZJDtmKqj3mTOKe9nZHgNNi6X8jMWGU1MmrG0aKL30CJ2PfmnmGZko0mcBqFsuagVgACwVDOyndpcLqfom0bHh0ITjNuWVbmYA6U90DyCeuVKdzYw6YA5N/qKmhdnrKNjqqfeh0ZV8DSaGAna0MTIWNPljLlWrXMwACQiAIp0DeMcRIOulEcTGmoMtETUiuns4dGETENEAEQOwJJHrUuOJqrc7NUjYASCQYtjnzEuiRMwIgIQCH3GHEl1nxxJElNwUC5qVfMW28/QsWGI0fHBRU0zImpOvmaM7GdQBn3d0ymLJoX9DE7QZzjv4FRPXHK8e/mR9oaF/rKemOyJPsPjNf7EZHX7itojK6rTFd70pSNJIpb2M8heGWsOlI1aaYS51rwiKOa1o1O1NmNYm2EtwcTlpZlrJUYw67JlPfGmnTOveXrujPl+w5cSQQISAgIwAkbzXY5Pj1e+uHniS1sm5ip83BMS1SpoXEpxWXNM8h8/qXOtSo6lOUGj8Zy//+1k2/R6JJ8ZdeVOngdKtpsNLSG9jkabEThfCw678anZdz16Yutsz+PY40wgIITqCACEQACMoCZkRdCuqeonz1t22xnjY30JNknowsgw9eacdG4RP2PR0ERjqeak8pWvuWax/QxdbD+zudZAM7oc37/92IcePDLWlwsVLhARgEX/Am80/uIz7DhsVde/fm8LAO5ZU3cJ0GjBNc0gY2UyBVncqYeB65hnwBJfS6GJksdXvvpqUC2nQWxYRjNAjU30ZljdR+2nOWrVyjRXDwlaLvuD+4+8c8eJmSr3ER0iQIzoglYSIAAn8hjrc/y5A626kLevG6tKaek+Jj8jF6BBe6hYZ7DO/iwSmqR/ElMRclQFD4s2VjMu1XJ/CTShDILRBUYwV2Fv33HiVx6fPlHjjIATESKaNCNIwSVC5EQIcKLG375z5s27Z+ZcxlVMTJU7IEiGmFCXROBnFGKpYXR8RDRRK6MCSsRSZuyUabGVUHBSYxM12LGjidHQaZqR1jskYECMgBNwIkaEYTuJESy47NoDrQ9sPzpX4YwAI83ITYF+IBESLLj8d7Yfv+JIZ8FhjEzCSFZqqaNW0sRsR5NCfkay7pqMmPWx0n4GZVbCoBlk9TPAlJOKKRkBl0QIXc4WXDZTYbMV3nJYnzEk4hIIwBX0648e5wQSS2hGkAL9YEQ+g6qgX39sOhgOiVnICLgEJoER8eifSt9iM6xmmKyCTFzWJVLcz9A8UNIpDe5wBvcZ5FLcZpiBLP24ajOGm2sNrEWHsx5nkz1x5lxvddtf3hMew2N1frDhHmw6AtFHeM1Tc5ce7Sy4jMtymhGkCF9gwWVXHe68+GD7e+uaE31BAD7DNkcRUyQiAE5QleQKAgCJMMwYaOpmHU0MEiorI6twTDJyDA+VLvXkzbVygj6DOYc/71jndXtmLz7a3rjQr/myIkgi9jjOVdiuqepd65r/vnXq5XvneeRHltWMwVNEkqFLcP3ehTvWNfoM2xxXdMXzZ3vnzHhrO/7yrpytsMN1vnuismOqcqjOXQl1XwrDAEkZNFHGLQtrRlE0ybQZQY4zGproD1ghttgTBs2Iw3tO1HbYsq74nfsPv+qpuSlP9Dh6DD3Oug4AAQOY8OQLD7ZffKD1+j2zy3qi7TJGMITZGBSPiAQdjpcc7455sibke3fPvnx/a21H1H1JEWEk8jgeqfE719RvPXNi12RlvC8VQ1HYqS8C0AYZ2dEk18M1yAgA8Jy//WBaFCPOteZ7oMa2BIhhRJPIZlDbYRvmvY/euf/io52ZquMzYGQwCRIAEGq+9BlKRIxi16ETRXNyX9s4dvWRzpb5ftthHkOJg9IJgBG4kuqCZlz2z2dN/N3Zk1VBjECaBGll6eLHJtboKVszIBznyCu1GJoYm1EcTUytih5hBD3OVnb8v79977aZ3om6wwA4EURxafwPABCIEfoMAbGsH2pIBME0LSBefKLXEDTvMokYDIcgIIuGRgBRInYcdIlecqizsivuWFtHKj5EBEs/11oITeJvLPnUCDueyVSGDU0K+RkUVQgBJIIj6U/uObh1tjdb4YHTByapIwASAAISQaQ9IyYCJEAkajnMY+hIChUxIp787kgSiMer/E1Pzv/2o9MtBxkNCOWwVOEEFY1Nis61KiGRVTPCW5hZOOXQRB1+0Eu1R61W+jFYM0nzLrtl1/R1+xdmqtzNCz2ygqbSiQI9QyRCDIbbMxQuDoA5wfEaf9ue+Vueng8H0HQnIL9P660q7mfkrIjJ1IwwsUg7S9sMa7mmUrNG0y3NCD6QwOO4YcF70+PTCy5jBLnGYHRTkahJ7IAh6sMYltLjAbQux3fvmlvT8T0Wg4slas229mURn2y6VQRNBhSYan2K2YyyaGLyQMFMP8UrYERth123b+GMea/HkZFplsIipFG1hNKECgNUbD+6HM9o+W98eqHNA3Cxo0nyWzE0gaTgMowEUbwMsiCaxBdZYc0gMIyO56CJ3c8gs+nTCBKCK+nKg61gKnUY77KoOmkJMdJTLEsk0g/wGP7coc5EPxr2IHNnA5MOmHOz/AwrmqQFm4kmiYtMuwksmpGHDkUsVYp7kNsMBPIRp7pi66zXZ4hFBYRJKQypGsZFxyUTAnQ5blnob5vrd3nCM42LoPC2xUATrWvBKDIiSkYr9lKNRY+IJkXnWgXCuCfG+iJYm1PIbGDGr3IJjV/LPCsB6oJOb/k+ppXbELWOiCYKg6n4eIbu1wYBuGE7pFbq0u9rNTSSAAAJJELDl82+lKXwJAhoomgWkuNgye/Bug7z6o50rTD9YPGEwAhWd0U0FBajy+KckmDhIZkoFUIT/XwO832FBKmVWnpfq32/CQEEPn/HYQ1fUvHuG0gRQ09pIFTGwnxJJCRIAb5PRCBp0NUQAREYIiJwBzhDzoFF0YaUg4oX0BUCYAR1IVNyTqGJMciEwpqh0Sg8Oq5Q0xVB3Q5pRJOspmulll4hnLlyhxO1XNZ22Hjk0xVVkEB4CIGkQUrq++R5IAQQYK2KtRqbmGIrl2O1hhUXKxWoVgAAeh55Hnke9Xri2Amam6dul7o9QADOsVJB1wHGIFCpvIQEAmHa5eHCmVNgrrXg46DOympoMtRca2E0AZP2pKk5kqarfO+4u6HV77FCZj0cMeccAEgIarfBF1irshXLnc1nVM7Z5py5ma9ZxdeuZsuXYaOOjCmD7MFPkpLaHXliWhw6Ig4f8fc87e3c5T/1U3n8BHV74DhYryHnAABSZgzTS4SjNcaU4cosOZWJWi0/y6OJQSKOSZYmKzaSZhhaVXBfKyPoOOyHaxsvOtAiBMwcHg0khA4nX9D8AgjBlk1Wrri0ds0V7oXnuZvPwMmJ4M6QBgXD4sEKHDmAFUACQsaw2WBjTWfjhtjtotm5/lM/7T+yo3v3f/d/slPOzALn2Kijw0GkVCR4wCU6UeWPT1RcMWieZjCzNONkoYmh9+LZ//cDeq5W86HnWk2PF0CTuBnBCOn6hf6/fOeZph+6pQbvkQgZA0TyPGp32MR45ZKLai+6qnrV5XzDulghSBKQDP3CwLfITRQtdkQAZMiQKJyHF3v39+75UffOe3sPbqe5eWzUsVIBIpISEYFAIEz48vbVtXddvrIRKUciNrGLDUz9Msf5GzI2AaOyEoF2eAvAIs+1WnOsmqFcQKj58onJypfOnHzPI8eP1dS5lUAtkDNqd8nrORvW137xJY3XXu+euTlCBwIpAYEYAwRkvFzckbYxRARSEgEw5mzcwE9f33zjTf09T7W/8o3ud+7w9+3HahXrNZBEJAHQR/i3TWMUzg+PjiYEI8+1pumbZBRvnTr7bz6gFGO0a3maUdTPGOKUBAAQCHVf/uPt+86Z6c27zJFEiBD5FtTrUbvjnnt285duqv/8i9nkBAXdXRIEE/dKNDtiGoBRqgg5O9f57vdbn/tSf+cubNRlrbqs0//22tq7L1/Z8ONBjBHRRKOgb5cfzc9I0ucrb7gqmZvhIOql2s/2o0U8JYEAHKJ5lz+4qv7SvQtTnuw4jBEh5yQlzc7xNasn3vuOyQ/9ZvV550O1EkabiMgwSMHPUgqQlTCcog9wJhxHkRJrtcp559Rf80q+cpm3+0n34JFDU/XffcGqOY6OjHYiLK6foXOvsJ+BNhklfvKVN1xp24FfrFRrPUdBE4VNhFgVdKjh/vfaxmVH2htbwqu4stVCxxl/6y8v+1+/X738EuAMpARA5Cxeb7GYOqEnxHC1ESIyBgQgJTpO5aILGq9+OefOe9xDd4/BKnQEUDSgYxebnQm5HB4+alWMULqCgeWwbvNOZCxC1GqtuIkpertqQh5oundsnJjo+msPHG9e/LxlH/lfjVe/PLQWjCGLllsstVokU6KsoAKhFbnqsq0Xv+CZ/T/dcXRfzXE5S88oD+GBpn4tAZpoG8D5ihuuVA8lyYtahzglwUZCb59WhURbEJvEjkL/exsnXvTGNz3v/e/D09aAEIAYjDcg4GKs/CqalLGN0LMJVIQIpFw/ufzm57+wWan98KnHen6/5lRk6jyHnwGaFPJjoqt85fVXmohmlZq5csfcjLJoYsxxGDvRXTh7+drP3vy+ay69WjJEAuQ8Wm6BI6/gyE9hBJTG3MFaVcTwKiIyJqRkyK7ect6Lz7rwh0/u2D9zrFmpSWWCLZcJi4cmaLzBviePr7jhSgvJslGrToNMRRf0M1JXEIAhHm/P33D2C/75lvdtWrFGCoGMDQY3T5bBiDUDI7c0mR9nBj8ZYwggSK6fWvn6i65+4tjBh/btaVSqRn4UnWtVniuHJiYZ2ffXxMrxMzslIRdNggXmC73ub15740dueEvdrUoiHoxb5y8aXOQUaQC15qZbczNSCrdSi2uSBJpYjThjQspGpfr6510tpPzB7keqjosJ/C2LJkP5GcXRJPyPA+Uo4Gdknki/VGgSsHq20/7Dl77xA9feKEgiAo8MxsnXDABAxPmZY3PTx4Xwu+2W73u1epNFVVL0IzYhwdDsddsualZq39hxX82pYLhO3sKEHKtcKmo1UsjSjCAFyjFi1Jp35g4ZnjE2Q7kStGq+1/njl//Su6+63peCI2PIRt+MMnRCRCnl7ImjgMAYY4z1vZ7X61ZrTca5rh8QmRCGDAGFlFduPmesWv/mjvurjgtYDE0SDF2cqDXXhQgc0hXXX5F1EwwZtVrrVRhNAIAhzvc6f/SyX3zXla8MNGNRtimNlBAZYre9IIK1XUSMMd/v9zqtSq3OHSdDPwJDEujHRK3xjR33152KmYeWn0P5Gbn0UwSTtPmKZLRSImoFU85iniHsMHaivfAb17zqgy967SmiGRiN2TtupdteiPWAMSaF6HYWqrVGIf0gecWmczr93h2Pb29W64lTgzRBLsFcaw6aJK4mlKN01Go9JcFKUCGUHbW2F1517qUfe83bJUl2CmhGkIJqOI5bqTV6nRZJEUZMjJGUvW672mjyTHxBxOC4kOvOvmjHwWe273uyWalKkibXTWPZiFGrHU0oXpaduMCUm5KPUVLx1DLyZuGVZyhbwVNXGOJCr/u80zZ97NVvV9g6mmQXIcVSr1RrK9as525FShlWjzHf708fPSiEsFU4MSICCPjxN7zrgnWbFnpdhsyEJgX9DNLNhb69FbTzVBWCqpGiQDmy/IwiXsVgXyuYirKhiVFNEEBIWXPcj77qrcsaY8E40imiGZCQLhE5bmXFmg2Vai3WD8ZY3+vOHDuUGCsjIwWGTEi5vDnx8Te8q+a6UsrUEF65fa36p1FqaNQM0pQklgTTKm8tNcMnVdEk+w1f6VuVHM7YXLf9vmtefdG6zb4UnJ1CmhEyLaEfnPNlq05z3QoN9IP3Oq35mePx7fomvfBZxnwhLtl41vtf8vrZTosjsxZZWDOy4gbVu7OiSSwZltTOIJdMN6cuK6Vmz7UWRhMAYMjmup1rN5/37quuJyJ+KtmMZErrh7Ns1WmMO3FVGeetuelup5WBhrF+ENFvvOS115514Vy3xZCV3G+istaA7mXRJPHJlGLKoYlWkyJRq11NQEpZdyt/+NI3uny4c7xOXlLwZdmqtak5F8S5E0eFCMNd2w5fRJRELnf++NW/UnerUopg1K8YmljCkmypWaJWo8kZKMcwpySU9zOslQbiyOZ67ZsvvHpEQAlP/SOSUvq+7/u+ECLOLEstIyX1o1Ktj0+uIJIQOa1+30uAiwFqB+AixSUbz7rlBS+e7bZTmyYLR61DjI7naQZBcjvk0KckRKRyNCN5q94MBPSEv6o5+e6rXgkAQzuhsbSklIwxHiUiioOIRVSR2FoQUXNiqt4Yl1LE4NJpzXu9TkYrIucUAeC91924ZnzKE/3EtEupqNV6jGTi/jw/I/mNghHSpZ9rpWyCBIEf+u4rr3/1uZcKKTjLPiXFnGLNCFzFvc88c++99+7c8Vi70165apXjOIHGDEE5I8VTPIhYqdV77VYQvAT1kcKvN9P7IbTEkPlSLG9OzHXa3398e7MaHKY9WmximWvNkJGeHPgZzbUmCSKi5/vrJle85dKXAAAOazZiO+953l/86Z997jOfnZ+b63t9z/POu+D8j//NJy674nIhRDxIVZa+LSWd07Gp5TPHDofGg7Fup91tL9QaY4HK2kY+GDIAeNvVr/jsj26faS84nGuTU2DSjNJoYpORWhgB2M/ngKJzraOhSVgJxJbXfcW2i9eOL/OlKLaxzSChwMJLKd//nvd+/KN/JYVoNBqnbzz9wx/7y5tu/oV3vO3t9/zwh5xzGe93XaSUBJd6Y7xSqyeLaM3P5FJgiL4U66ZWvOL8S1teNxXWWqNWMOWMiCYpS+TYN/Qu1VyrTl8SVR339RdcCeFRb0OaDeH73HFu/ad//sK/f/60deuklLMzM3/8p//7l9/8JgAYHx//H+/5jbt+dK/ruovrmUIEGUHNxyeWneh2gnzGmNfret1OpVbPNh6Bq/GGS1702f++XVC8XTuDtSaWGkRRKGrVaQSvGTHKMO/MHeUZ03gGZatJHEwjtr3upRu2XnH6tuDncKv9iIhxDgD/8aUvNxqNIEJBxNWrVwc3nLn1zJ07d959510AsOjGAxJRUrXerNabcRFEst2az308sJdXbDn3ko1b270uw+QWKGPUmn8uUvGoVS+CYDB8rjRUb/VwUStlawZA6HC8YtvzEdGXAqITM4aQDSJOT0/v27vXdV0pJRE5rvuxv/zogw88cP999//1Rz+GiI/v3Dlo0qKmpEmoj00k8lmvE07xZz8bQOoNF17hCT9igq4RkMvS6GrBqBXMykfkGOyB9thizbUamyGkbFZrl288C4ZVC4XLsQyklLVa7ZGHH77pNa8FIsZ5rVYLdw8sTYrWn0Ot1nDcivC9YGeVEH6v02qMT0bsMDczaP5VW85tVmoiadsSpl7z+8AgjhIeqCX8CXzBNMlFmGulrJqrtBCw5/c3LVt9/pqNAMGJKUPqR4DcU1NTm7ds6fV6wSJTKWW9Xq9Wq9VarVavcc7PO/88WMKVpxjP0NYbY0n71OuFXojNZgU79ADg/HWbNq1Y2/P7qNmOIeZaC0WtNsRPXdfRZFHHQPVqMYSe3790w9aq44rR/IBgAR8AvPktv9rv94OhjjiOcF33+LHjV11z9TUvfCEAsKW0H0Gq1psYBR2IrN/rxuMfGUlIUXMrl28+u9f3GDK1Q+ssLTvXmuNnpGTEMh5bvLlWMGpG7MFdvG6z+Y4yKVyRJeWNr3vtB3/nt48dO7awsBB4Hp7nHTp4cNvZZ//Vx/861qGlTm6l6jhuMKCOiEL0+14vvxUAAPD807dqwaHC5PiH0h+HiVoh/pEukIEhV7tTt1Sm4Ls4mkDgPwZBLOdblq2EkR0OjJKU8nc/9Puf+qdPX3b5ZY1GAxE3bNjwzne/6/Nf/uLGM86IB0mXNAXesVutD059IfK67fxWAADAmavXVbgjB4fLlkYTytEMUB83uLRkPZ8jy8/QyiiLJuG2QQCS/bH61IblGyDtS44iEgCQUt50882vu+mmgwcPtlutdevXN5tNKWWgGUu9DCDGsmqt3l6YifP9vqfUU38w6CEbl62eajTbXo8js/Y8C5rYZKQxK02LDJeYLshhVwiXQxMHpA/sqF/bXBern/kkeNP6NsPhpBIu4hUCEdevX7/1rLOazaYQAgBOgmYkk+NWEHm828X3+7mlB8qxdnL5qrEpX4joeKpMlpaLTfLRJL6iRCs6qcXxe5MEHSQBeELWJ7D7e8vv/4fmp2j7n0nhZa2vLZxi1sfRSjAuGewxOclLhzh3GI85jFL4RdwdIqo4zurxyfBVYAqajKQZSg5kqBooR02OMNdaxGYQR+oTmxXVNbz1tomHfnX84U1upyvAdyoo85214im5Z1XPP2mJcc65I30fImdI+P14I6ctBe5kza1qdlSz6iNErXY0GWRFR01a3IKMUktpBgfpE5uW1eW88+vjD7x1fPtWt9UjmBWMgWTSI+mduqu+hkqBlXIc1+t1wgELklL4RR4ExLH07N1oaAKKjLLRJE6Otgu2lD7mW6pQLag2hd23jG3/tYkfn+POewSzEhmQg8GJBAJETyf07E2x/8R4agyaqACsAAHARK0hB294yZlrLRWbUCbB5E2O6RWV+eMZRaJWDlIAm5G1Mey9qfnIr43/+ILKbH+gFskWCVpUWDl1ErJUhC4LHHocMDDxbhnjaEfBqNV4Je+83CjHgezRcY12ETThQBJgRtYa2L+5seMdEw9eVJn2CeYkYqQWlHjHDRGAzLe3z8aE6Q0HRSxH4BgteJ3wJSInGU0GX9EphSZGCwWJywyIAGZltYr+axq73jn+wGXVYwJgXiIC8bRapMqS3uJJ5BRKyoAbFYhWAuZ0vB4iLq1m2G1G8OkkcvPRJKMewYDJvKw4KF9Z3/3O8QevqB0BgHmJAMCjPmDyOhGIQp+DSrwZ4VmRMHy1aMSm4pajG1gORXInx2aENXYybzKiiXo7AwkAC7LCgH6u/tQ7xx+4pnYIAVoSAYABYXTmpUXuCETPVZ9DC0fzdT/YzDLdXuDBHqeQEJSJWguMLNgJxsrnJH/aSrX5GQiEQAuyAgDXVPe+c/z+62r7OUJLAgHGapHDEnwuw4qyXRZZjnIEvehEa+7w7InBMuOThSbKRafMXGvqE4E84l1yrqzsfef4Ay+tP1NBWJBAhAyIRcFIAZRAIIhC2edcUs8dZHm3EyD+9Njh4605h/FoDn1Ro9b0MxmhjWO6KT9qRaA+sY3O7B9Ofv/n6/slwILELgEvpxYJsvTcjFakFCkIzpwQpuj1m08fP9Tu9YJDBoaOWsMfhdFEu5j5AkDKUhNgQG3p3NXbeH9vhSCYYOGkSTypW2o8i0R3dEmcOil2NaQUyXzGeN6TAAA/2f908o2ipIlN+Rz8SFxRj7KnLM0wFsH0p0HVUIMBIQIOdFw2/mbu8luOvOEdx67/Zvt0AJxkxBF8wni9QVEVeW4pR5ykEIPDr5HlrmANtvrd//SuEFPilIMm+tLz/NFx9T6liMTbIdPQaKqMXjcH5ArWFoTf6pz5nc6W51cO3dL8yQ2NPat43yPoUhitJE7oz+BiL6rsKb25vngKWiGEH02sECIy7tjuj2eP9xw58Mi+J+tuVUrzG3vSX8lwxX4osTFHtRkDn8MKWgYoAS3LJ4ZAE6xHBA95a+7rnfZ3cy+4qbnzpubOM92WD9CRIAlDFbG98wSh3ZmZgOdaIqL4VAUAQGTZU7ISiAHc/cSjJ1pzyxrjIoYkS/80y8igGVZdsTq5AADZh7cYjVD6Z/hCK0ICbGB/inX3++MfnrnqxkO3/NbxF/24t6LOYJwRIvjRLJLeHRjCrkNP9U/6lPqSpsBUVKsNKXwikkJUanXGeMaCpmAa5ns7HkRA4xku2YMZZFIDy6s87E5uggJf/vLLko9Zh70MdklbbkBIAA5SA/0eOff11n2ldfZDvVV11j3DnR/nJAD6FLygJCSJAJJwjNNtxyr1TbesaTbCl8c/y7Ukue8+GORrjE1MTK1Eyx7/IE7hjD159OCf3faZwSn/CtvRqit6sAEAFliwDJloN0fKoQ+cZBdCxoVBcYnIkBrYB8DHvJVfbW27s7PBJzrDnVvuCAToEwYIgwgSoObAd49XHnMuftGmrYLkKLtXTp0Ur1ms1ZuNsYlavRm/4sl4vyRiyP7prm/ctv3e8cFijnw/Qw8iwJoDVs0wJaZphGlbrAHVsiwVABChIAZAE6w3xryHemt+69jP33jg5g+fuGSv35xg1GAU4FFw/6TLvvLIvb7fcxgHk+4961LsWScPFTKukw0X1TLe7XtffuDOmluRyhQMZWmGupRwcJdZRpRJcJBJxNLrOcyrPpWmAJgnhNI54YcElBS6I/v88Q+fuPLGAzd/8Oi1P+4uD90RAClhsuI8euinX//JfQAgn/2aAdo7N4w5MasCbfjaQz/8yf6nG5X48JZIbMqRs7pA7PxP5NiHwvXOTwCB5bCiieG1MdouuNyaERCABBTAqiiW825LurfOXfCGAze97eDLv9naAICMQ40Jjuxv7/7Pbt8LYv3ngPEIUryhxnw5fO0G73reJ773Zc65wXSb/Ixo2IpMykJGzTAPptmDHb7sZZeF9+XKwvoKO2sz9HIlIANoYB8Qdnorv7pw1g86pzeh25H8B962A9MH1k2uvHj9FkHyFDyBdNFT0EAhJWPs1ru/devd35qsN41bqC1oYvQq9By7n6GEP2mN4stfdqmF6EhoEiS0UAvGxerMd0Hs649/vbX1we7a4NITxw684eJr69Ha6+e2cgTM4ozNtBfe95lPBLuYjO/E03IKhQ0l0ST1C9VzSMObSNeM4dAk25EWhBKwyfrjzJuXFUmy7lYfP7L/L2//EgBIkqNvczqVU2A2Am/jI9/4912H99Z1VzRmaX7UWgBNMoY3tRkToiBayeZ/ZtSarP+g1NSK5ZwQK/BYOUgAEFJM1pqfvvdbP3jiEc64kOK5qh/hWaVSOIx/d8cDn/r+16YUQEndPfi0+BnGR+zjGXbNgAFgkWY5TGhiLFWrWTERmmCSEiQYAhD8wW3/MttpcRaeY/wc04/YZjiMn2jN/d4X/iF4RzJFkqPom4Kplqg1bzwjfQHyMmNup0+tG9HPoLRemuAppxkEQspmpfrYob3/8+u3BhUND3IsqHynfKJotCNgxoe++OknDu8br9YBiCEyhgyRI3JkANgXIjm/bYpaacD/NEsHP7PRJG2Wkv0wOUlo8DOguGao33LQxBDQhF/Rl2KqMfbZB76/ZeVpv/mS1/tScGAAQCfjxbFLn4gIQBJxxr5w3/efPnrolRdeHgIKxQPkBACS6Ojc9FPHDkmSaHr7woij4zqaKEXE0UoRNDHWzDpKklEPQ33TCkYEdbdyx67tZ61af97ajb6UPHjN87M8eokBhTN+165H/vHO/1zWGOfIHM4dxh0n+ssdh3GXO6smpqSUxxZmGeY5AJASRZ7wDI+T1ntZGTTRZRl1/6SRKYYmlARU3fQE51u4lQ9++R/ufXqny3l4HsGz2fuIRjUEZ/yxAz/9uzu+WuGOkFIEJ4dQ4q+UkkhI2ff9VeNTXJ/LtfqCiQCxWGwS102vMAMTmpQdz4BUpXLqkTMsEzeHpMt4z++/9V//6r5ndjmc+yI4iPLZpyFxhQPNePzg3v/zn5/zpQikHgyfRn/DPRzx3DXTFyXr/M8YA82LTchkMwIqyvtWSketVCZqjWprXFyiwxMKKauOO99tv/nWj9z/zG6Hc18KerbFL3GFBcnAZvz5bZ/peD2XO9HbuyJfg9JsMCK2OY4N/5uPAlMfz8xJyJelbyoTtZKObbn1yEWT1OOIIKSsuZWFbufNt3747j07XO4IksH2c5KSorNZkmlkaS5mGrzig6TD+MN7n/yL2z7b9byq44aHCwavpbYtxjJ0eruM9G5n6utK9Yy1Dj748pfGDmnp0fF0pXNz0s9ma0YcugBIkhXudPveFx66c3lj/JLTtwbTtuHLMSBeO0Sh/yRl6PeQyrDAa4GT4tTGw/9CSgLgjH/r0fs+8d0vSUmu40THTkaakTiAPhGvQDBQtu/EUYNapFmqiiovNiHIshnBJ1/+0ksNpPI0I31CflE00aiBVcEpwSZAInIYR8SvPHzPTGfhurMvcnzhPfk0eB5IQocj5wCAjKX/DeZDk++XPwn6EU8ZCpIO472+9+n/uu3zP7qj4ric8RBNkCC9lFtnICL4wt83fTT4ZZRRxniCUSJm79CkY87oc62Wm1M5AZqUaoZyfxDrL2+M//0Pvr5j7uif1Les+/NP9qcmeL2G9TqONdnkJJua4FOTODnJpibY5CSbmmRTE9ios3odG3VcgpclmKofqYUUAOgw/pP9T3/w3z7Z7XubV57miX5KM9IbxynH3TZ7oAaLm+mB2otQe68z3FxrqdiEshVcMULKGz5SKk9C0qqxie8+/tALdt75W8w50WrD3DxISZJAyvAfAHAGnCPj4HBs1NnYGHBeOf+cqT/5ECDmuErDpoRaSAiWaPS9j337P/7621+Y73Zecs7FkiSEIzVmNDHyzyJEu3TzYpPCiE/OEHOtxlItOcZSwawZUc3R1nwCAOiTnHJrl3RbPgbjzBySngdCyPdw7IWo0xWtNvh+Z9+BsV97s7tl06LDiqIWAZrdvfvRP/qP/3fPnh1TjbHxWj2Iw6NmqO+4QaPYjPXMRhO7ZhRFk4FkUNkrmxWbpGsysp8BmmZQgk1g1DNAIIE43vPXt/t9BqmTbyydDhkDzqFWkzOz3o8fdrdsAkmAi6MfSbVADNXi0f1PffSbn//a9nuAaOXYhCDpi2h0PGyEiiYZ9Y8vIg6vGWBEkyzNIMw6vCUrNjHVXbsnx8+wuLTmYmlAtM/g9J5c0ZN+8amWIIQB8H78SPMXbhwdWQaHVgNIKRmGvu/uw/s+eftXPv+j7y/0OpP1JgL4UgyqGSOHhiY5LCWLjJKXMzUDoKifEXwLXA3zdsjRbUaOI22J5TPQJPhAAIGwzBNNn3q8TN8nQtfp795Dvo+OM5xnmtAJIgKGiACMMV+InYee+dIDd376v26baS9M1JvLGmP+YIN8uixz1KoDis6lhCItGZokb3WK2IzFRBNT1Jpx2ViZqb7kCWYVSkTguuLwUf/wUWf9adEoREQYU8fyJ+A/KT4iCIa3EQEZQyI6OHvioWeeuGv3I7sP7/f8vsP4VGOMiHwprNVTfTxTkweHf1L0z8KMPCteCk0gvShA29ereaA5HNceHyJqNVbY1gwCqInQ7pWCBuSc5ufh8FFcf1oQv8v45MfECqxg/0BcXrjDigijBc+e7++fObZ97xMPPfPEniMHF7pth/OaW6m5Lmes2/eidzsq9kFtGZr4N3BCDRIgtIgU7Jml0ES5yTHGMOk/qiDtOSNGrcb668EUDgEJwSNM0u4dD4+df+YqYrVqLZgHt60CiNna7XutXufg7Iknjx584sj+vSeOHp6bbntdh/Gq447XG+ax+0F4muTmIAIxr9zB9D6i2GqQaZB9CD/DHj+Sqsekn+wzFJpkWiotBzT9o2KaAQCAAF2OQyz8kUTjTuXD3/jCv+7+zrbaxMqJZeumVmxYtqpZqdXcSt2tNKo1KWXVrQSj9V3fOzY/e7w1N91amO20Ol6v5/c5osO5y52JWoMIiCgIXxG0ClviLrufEc2bDQAtBTCl0MQAWLloolk4x/Bknj6WXbmj0dT2URXWDAJgRMcqrF9+1Q8BMIAGsK7ff+rYoceO7BdShN03REP0/P6F6zdvWrnW830WvVXaYYwzVnGcmutSeDQTpd4onka4tNOVvBaDromlyfZYkMjErBIyKtF7gx2ausNI2tB1Xj1KRq1KLyuhGQQAjoQjVT5dYcs86bMSQWlQwz4CQ1ZzXJdVwlGzqBMH/sRUY2y81uj7fnwUYowZgpItikAu/paw/wZhZAhXQRNtEFDlxaKiSVp4KYJMvz0hIFIrsihRK9mLyNMMAHAlHaqxPU3HuMcjOwmEeQeRSBJJKYWUQgghhZDST3yXUgqSIrotxWtSg5kU382NVVbcWNAEIoqx1hmpZWoGGWOTDD8DrJoBg3e8RflDeKBGJ8XUkoG5LWUzKKEZAax0Gd61suIESFB4yAIB+gz31jhPjmEN6BscxAzYtg5eJZ3y3JoRDdzrlBXCNC9Vp6OojHL9DLJqBiRfV07ZJ0sbjCHkrNxRKk0AKmAVshlKv5QAdUnfXV07VmWuBCrgewQcqEg6VGF7mrwqU4Vbp6TtsJ2urEUFyP4l/hlHrbpmJPWBCugZlI9a8+BpsBIsNddqWM6qq2RhNDH4GaXRZPCJWBP0xJjzuQ318b4UecaDAJBIItQEPbi8cqjKuC8SLzKJilARz2ycYzkm6owGyZH5d6o5amwyyLW2JMlSZQNjqajVUEGDEWIDq2q/ycYmvVQTawZ3G+wYWDWDTJoRZEuAsb781OaxHy+vjHvCD0YrzdYNgvN1OEGb48NXnnflGdsmoo2Hg3YbeahyOYwsVc1QbtX9E72xIZpEzn/aZij9zpC0fa1Q0s9Q22kROqNszlii1hKaoaAJGAs0VAGNmhGzVEpWr332+hccnag3u57gDEA1IbFmCIZjHe97F2386foV69zGues3uTz0WFL0k3yzYQFommHXpsF3SnhcJo1K+RkZDqkmEcNBDLkATbmaEX4mDmonfSTK7IEWXyGsZpeZMs4AdATsE61x6/Nrln/8tZc+sX75eNtjRCI49SXRmYKcyVbvnnPXf/2KrdWe3xV+o1IZr9YHm8yUKtmFbUYT1OpPRmppH0fzM9LFJUfQkvCto0E5P6MAmgxyWVE0MVTUIFJj/RYDTSBtsQmAiLGq5x+brH/idZd99aqz+pyNdT1XSACQCJIhk9Tseo6QX71y660vu4AFp4IEM2f6e27Seh0XEjPCgCaYlGvK1KRYRVrLTX5GGrsofTMpkiWjn5GHJqp22EUc1MCx3GS2GTbRGxhNWZczNMOkamYaACQRK31BjH31qm33n3XalY/tv/DpI2umW66QhDjbqDx05uo7Lzj98Q3L654Pwbu2Ke7daW2w+4LpqDWBJgVWCFuTHrUOFMUymUDpp4eda7XWMKHRCICkTLzZH1vquVb1m/kRQ2ESkRE1uv0jU40vXnvOty/dvPHw7Fn7p0+M1x4/fcWRyUZwlRAHa6lC9kJCUdIlaeIyawZhapQiw4VUGpvWDH2BR06jy6NJhoz0+sfj+04phSogyOHmWoPPXDSJfgagEHV+QiAEV8iKL/qcP7Zx5aObViGB64t6rw8wGAsZuISDgfDEspq0yaV48l7xMzCtGWkEMO4vSTENMal1EcsVP2NQIulkRpprzXk8+TW9nsNiqUxamCNIMsg1WvwbyDPZhyn4TIG3gUKGrSYgBAJEkjVPBi9tIMSEWkQ3gTLYh1qrQ/6wNBNS82fB3gK9Ojkrd5LsL4YmmFdELppAUc1I+z4A6ZfxmFC9hPHPmmtFABlOXFlfKZV+ihgii09Ps7QnKjc5f4+EYac3PIqJIXwT59Sql/IzdE4SQSoijQ1UREWxGZlEDXqsi2Ex0CROTsZjizXXigC+lBXu1N1KRuWSPwnA8/sdLzyT1Io5AXk0XSDt0zxZnmJ+9D2pW1loYvdiY4CJWUMJKcQsN6JJ6nIEV0aPHKyaQVkzasbH1d5C1mgl/WiuzYB0A5PbUwF8KVePTW5bvb7quFbJaKbdl+KpY4f2Th9hyDTuKd0d1XwF3YJXFaJVgRQnIH0hHbWm/QzTfpOktaBULZKkM9AEkp6Q7g2pVDSWmFbulNUMADC/AHCkqFW9QRLVHPecNadXHTexsQesgooKcRjftnr9bKc122mFx/ok5WXpR4ZqUnTkRdb9WtMGtj+NJjpjNCeA9HPdFGXLRhPrFKid0YqUTUZIo5SpGQRgOId0qLnWdIVTZkNK2ahUK9zpCz9/WU6iRwopGLKJWkOS1OdyI2FSBoXwdzJSSY5OxpmpSicJRjGR5ZQEVB4jEw09KxdNNO7b3C6zjBZJM0CLVtKPFkGTFDWtu4RgPYgJo9MSSHMUoh2k0ZM4EIDyMjw7e3TbEfqqka9AqeuqiQn+KyYq9gQL7TfJEmKKL7maETfZYGHtNgM0gmB93Cjp5NfE2yFLnLkDSewxq7dJjTBkvv7+yEiQkLwxTqhKggCAUIFjRTMIU74qKlFKiMsD/pu6p1GQCT/D4nnpgJVK+ZpBpB1BauoeOT5DIc0gG0FIwkqJqLX4yp20kac0CxIlJz24uFsnxa71oLwB+gSaxONOBl5RCh3SLNbQZFC/IqvPjHbF6N8AKTYDVXcybnAmmhTWDDPHNIIslkSJudZyK3fSrUSDoBN34sCw27uzzZgnNCuOHtEQv6erZhe0iiZ2tmZLgtJ/TFY2uUA9PDMxE6LIXFKR+iSQM9McRG9qKulnJGVnRhOzQTGlhCB1791oFMhGKP4To4llHNPMCq1rmtFEq4EyQZP4SUZtsKEJRWgyAGHlGX1zTLm5VrBI2maE2BArd9I0MmxGVBkyElT8DDDEPgBAxtmFVH0SMojHJCBcbWXzhEgxeNkalEQTTX0tMymkfTeUkQZZVIwcmUgqfkZhNNG7rUUigx+sBJoo2Zk2w/7V9ghabk6oliLKwIM2qLay90Zlk60eRiYMKmdEE0zTsVpbMjkN6dgEk7NkCTBLtj0L23JsRkLxctAk+IlATgk00XmWkUtGImloHWTmaR5YNWmQaY5aNTap3S1RsDYMT9loYlCZzA6B+uPRjSlVxog/aaYkbYau/YuCJom6EhEz3ASaUBU0KbZ2PNM3SEStRptkxpJ0txt816NWfb9BQjvIRthk+CETTUiTHKWLSLaNEuF04vHEOtBYX9Dc6mTLS6MJFdSMeEu4k6MZo67cidbUEEXby5Xg0DQciDELSdm4n6IayyAJ1dpewiSbEEDqVkCVewgBFPsuKt/TJ6uEMQ2RwfelJNEUS1OP63YAI2FSejx8FDQxNtnShQHAsB1S0YzR9rUCEENseb2e8B3G4mMKQrGHOgPhZ/A7/A8MURLNdTqMseQMJQAQEUM23+lIkix4d0nULyhccZM8FSFaCEokiRzGPb/f8roMMTWYAmEnnm23wrNLE3tDKEkyLiVqAZF0uNP2ur2+l1idmqrwbHuBB6/MjdaiJxgAcavjDhFcc5kz3235QsQDy5pmZ2lG4nqmn5E2G/F3x6oZqoNc9JSEZL8gAgbY7fd2H9l/9poNLkuf+GBfFBecB/3k0YMznQWOLE0VCIAzNttZ2HP04OaVax3GB+8/zxocIyLwhdh9eF/H6znqqwiIABzGD8+deOb42LqplYyhtXrJrwQE0O71dh3cK2TwUssUu4iIM/bM8cMT9eaKsYnoeAC7dzIY5afp9vyeQ/vDlxfDcHOtGiBa+KMvPcRNf/RWc/NVP8BYRpZmJC8KKRputVGpRb64cYo49WC37833OoNzv1L0Qx9WSjlWq9eCZSKUWZ/oSqvXbXtdzphB8FEvJ6CJWrPiOGQhqzwlgRY6nZ7vcWR6iUGSJBngRKMZvHLbIAqNspRyrt3ypWDGV0aObjN0HU8nR3tsdD/DQNBhvNP3Wl43o4oKIrHwVVZG5za8hzO20OvMddrGBptYABwxbTNUQxO82WK2s0CkdzxTZYLNYYxxDf6S9zBEIJhemFeKpkz6nDGGjIiGshl5MjLINC01M0OT38rsRDKVFLCAGCJHrhEgG2Wd0UbbxJFxrj6u0VZtQwZrgnJ51L9tbdf2l5CCJgrFWJtLMDOG86WNWvVdDuFPRxVk9uEt5dDEarvSt2QqXyZaGQStIEG2SdMJx/9T60AtRZClCBOjE1Uq2tmMPkPhuVYwErRJxEjfsMB49FMS4nJNzTC3yn6DXqV8NpEawlkUV/k0E0StyUYRWBEnToadSHqzqQRBAw+zeF4MTRIpscBY3W8yIppYW2XWPDtfLK3TjW363hyboV+xYY1BM8yEMgVpVz67zYAsgsrjhdBEuWhBkzgNQll1TWs+m7KsfZ4fAxbN0Dt0Efojo0mmdS1UhP3xIdFEoXkS0SROjoYmBTuQvXfnswmKaAZZ5+JOgmZofBpWM6D8vtZcggYe5qJJWjPUqSeLh85UamY2FbVUGakAmliKooy7sywz2B4f1maY25T3+BKdkqBdz2RC+vFMAcT0ySEojSYp+tloQjqlgmhiZL19rlXjmLl6+QTJ1GR7EacEmkCWZqh+RY6fkSTqLBqa2FtVFk0sDVtiNLF2b0sRhr40EpoY+meZfa25EjGN7uRoHtMrnNsMyHrEVFxOM1I/rX5GPpts1aNCaKKXohSR09RR0US7MUtyo8y1WlNaM5D0IxggSzN+NmhCixm1mipsq6G9iCH8DLtvVHblTuL6kqAJJE72KWT6yqJJlo9V1s9QloAsCZpYbYZaRB6akM76XDQ5uXOt+fSjX0WH+suiibFUQxFFRAvDacYioUlp418eTYaxGZBFEOw5ubsWEg8xjc7QaKKZjcJ+Bhklp6yY0gnmaEaRCoNNMzROLj6awMlYuWMgZ6Of7gwEg72yI2rGkqCJVTN0K2hseDk0yVLsnz2aUB5B9YqB/3mKq4iRIDllP6yfAfmlGjUj+oMGgpYuXgxNTEVlo0mWCIZCk1zNyDNCJs0o7GeURBNby53sZhhycjpoCTRBo+QWda7VXGeLqSfjs2BWjzTnS/oZZTTDXIEc3c2pcCaaDD4dlVgOmphbtZhosuhzrYXQBEA7JqmIIA1oAhmiXZq5VhU9yqGJYbNT9Gl4AWBZNBlKM8p18QJoYqx4QTQJWWiITeyaQVqOkSXZ3uTPYK61TGfTXwBoXP07ysqd/C5uLqIEmkAhzTB3aDunMhl9Ssy1ZvHT9rgJPC22wNGuFkETrYzCfoaldSMp+AiaYS7NVH+1hks611oITZSLlKcamp9hQxOAEGMH0QrZ7oNFXLljZP1JmGu1ctkMWKcEmkCWZihXSvoZkK0Z0Q+nnJ8x+lyr1oOW1s+wctlShMEUj4QmBqNRaK4VimrGEKPjuSyNfjqp+3IdCzuHzfcP/BgLSA6vGRazZCimIIpnNTRRu5J+hkovS5YlT0koljQ0sbNUTY7F1INJcspWcBsnLTYDrBqq1zb7oFGzac1Fk2RLisybaA6Y5WVyVpuBZLktdVeSvoGBtiZDEbOR5oBhoj9TIv8fZtV5IXAjSHAAAAAASUVORK5CYII="><meta name="apple-mobile-web-app-title" content="Ahcoc manager"><meta name="application-name" content="Ahcoc manager">
+<title>Ahcoc manager</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:17px/1.5 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:#251f21;background:#fff;padding-bottom:40px}
+header{background:#251f21;color:#fff;padding:16px;font-size:21px;font-weight:700}
+nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px;border-bottom:1px solid #eae9ea;background:#fff}
+nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:60px;padding:4px 2px;border:1px solid #eae9ea;border-radius:12px;background:#fff;font:inherit;font-size:13px;line-height:1.2;color:#585254;text-align:center}
+nav button .ic{font-size:21px}
+nav button.on{color:#fff;background:#251f21;border-color:#251f21;font-weight:700}
+main{padding:14px 16px;display:flex;flex-direction:column;gap:14px;max-width:600px;margin:0 auto}
+h3{margin:18px 0 0;font-size:18px}label{display:flex;flex-direction:column;gap:4px;color:#585254}
+input,select,textarea{min-height:50px;padding:0 12px;border:1px solid #cfcdce;border-radius:10px;font-size:17px;font:inherit;width:100%;background:#fff;color:#251f21}
+textarea{padding:10px}
+.main{min-height:52px;border:0;border-radius:12px;background:#1f6f5c;font-size:18px;color:#fff;font:inherit;font-weight:700;width:100%}
+.sec{background:#fff!important;color:#251f21!important;border:1px solid #251f21!important}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}.cards div{background:#f6f5f5;border-radius:12px;padding:14px;display:flex;flex-direction:column}
+.cards span,small,.note{color:#585254;font-size:13px}.cards b{font-size:18px}.wide{grid-column:1/-1}
+.good{color:#2f7d6a}.bad{color:#ed313e}
+.line,.item,.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eae9ea}
+.item>div{display:flex;flex-direction:column}.item>div:last-child{align-items:flex-end;text-align:end}
+.row{width:100%;background:none;border:0;border-bottom:1px solid #eae9ea;font:inherit;color:#251f21;min-height:48px}
+.lnk{background:none;border:0;color:#585254;text-decoration:underline;font:inherit;font-size:14px;min-height:40px;padding:0 6px}.lnk.red{color:#ed313e}
+#flash{position:fixed;bottom:16px;left:16px;right:16px;background:#251f21;color:#fff;padding:12px;border-radius:8px;text-align:center;display:none;z-index:9}
+.sub{display:flex;gap:6px;overflow-x:auto}.sub button{flex:1 0 auto;min-height:40px;padding:0 12px;border:0;border-bottom:2px solid #eae9ea;background:none;font:inherit;color:#585254}.sub button.on{color:#251f21;border-color:#251f21;font-weight:700}
+h2{margin:4px 0 0}.pill{display:inline-block;background:#eae9ea;border-radius:10px;padding:0 8px;font-size:12px;color:#585254}
+.grp{background:#f6f3f1;border-radius:6px;padding:8px 10px;margin-top:10px;display:flex;flex-direction:column}.grp small{color:#585254}
+.warn{background:#fff4e5;border-radius:8px;padding:10px;font-size:14px}
+.ledger{margin:-4px 0 12px;padding:8px 10px;background:#faf8f7;border-radius:6px;font-size:14px;display:flex;flex-direction:column;gap:2px}.pl{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dashed #eae9ea}.pl:last-child{border:0}.pl span{flex:1}.pl .lnk{min-height:32px}
+input[type=date]{-webkit-appearance:none;appearance:none;display:block;box-sizing:border-box;min-width:0;max-width:100%;width:100%;text-align:start}
+.foldh{min-height:44px}.foldh small{color:#585254}.foldbox{border-bottom:1px solid #eae9ea;background:#faf9fa;border-radius:6px;padding:0 8px;margin:2px 0}.foldbox .item:first-of-type{border-bottom:0}
+.lock{display:flex;flex-direction:column;gap:14px;padding-top:20px}
+</style></head><body>
+<header id="hd"><img src="icon.svg" alt="" style="width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-inline-end:8px"><span dir="ltr">Ahcoc manager</span></header>
+<div id="mv" style="display:none;background:#fff3cd;color:#5c4400;padding:10px 14px;font-size:14px;line-height:1.6"></div><nav id="nav"></nav><main id="app"></main><div id="flash" role="status"></div>
+<script>
+const SPACES=[['dajaj','الدجاج','🐔','chicken.data.v2'],['roki','الديك الرومي','🦃','chicken.data.roki']];
+let SP=null,KEY='';
+const emptyD=()=>({clients:[],workers:[],cycles:[],cexp:[],sales:[],pays:[],rexp:[],buys:[],suppliers:[],stypes:[],stseed:0,spays:[],xexp:[],wpays:[],lastBackup:0});
+let D=emptyD();
+let edX=null;let openSup=null;let payX=null;let sec='home',openCycle=null,csub='sum',rsub='sum',openClient=null,openWorker=null,confirmDel=null;
+function loadSpace(id){SP=SPACES.find(x=>x[0]===id);KEY=SP[3];D=emptyD();
+try{const r=localStorage.getItem(KEY);if(r)D=Object.assign(D,JSON.parse(r));else if(id==='dajaj'){const o=localStorage.getItem('chicken.data.v1');if(o){const x=JSON.parse(o);D.clients=x.clients||[];D.sales=(x.sales||[]).map(s=>({...s,paid:0,cycle:null}));D.pays=(x.pays||[]).map(p=>({...p,cycle:null}));D.rexp=(x.exps||[]).map(e=>({id:e.id,date:e.date,cat:'أخرى',amount:e.amount,note:(e.cat+' '+(e.note||'')).trim()}));}}}catch(e){}
+['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','spays','xexp','wpays'].forEach(k=>{if(!Array.isArray(D[k]))D[k]=[]});
+function seedT(){if(!D.stseed){D.stseed=1;['كتكوت','علف','غاز البوطان'].forEach((n,i)=>D.stypes.push({id:i+1,name:n}));const tk=n=>D.stypes.find(t=>t.name===n).id;D.suppliers.forEach(x=>{if(x.tid==null){const c=D.cexp.filter(e=>e.sid===x.id).map(e=>e.cat);if(c.includes('chick'))x.tid=tk('كتكوت');else if(c.includes('feed'))x.tid=tk('علف')}})}}
+seedT();
+D.buys.forEach(b=>{if(!b.sid){let s=D.suppliers.find(x=>x.name===b.supplier);if(!s){s={id:D.suppliers.reduce((m,x)=>Math.max(m,x.id),0)+1,name:b.supplier};D.suppliers.push(s)}b.sid=s.id}});
+D.suppliers.forEach(x=>{if(x.kd!=='g'&&x.kd!=='p')x.kd=D.buys.some(b=>b.sid===x.id)?'p':'g'});
+migrate();sec='home';openCycle=openClient=openWorker=openSup=null;edX=null;payX=null;confirmDel=null;for(const k in F)delete F[k]}
+const F={};
+const $=s=>document.querySelector(s);
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){flash('ما قدرناش نسجلو الداتا!')}};
+const today=()=>new Date().toISOString().slice(0,10);
+const num=s=>{const n=parseFloat(String(s==null?'':s).replace(',','.'));return isFinite(n)?n:0};
+const money=n=>'\u2066'+(Math.round(n*100)/100)+' DH\u2069';
+const nid=a=>a.reduce((m,x)=>Math.max(m,x.id),0)+1;
+const sum=(a,f)=>a.reduce((t,x)=>t+f(x),0);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function flash(m){const f=$('#flash');f.textContent=m;f.style.display='block';clearTimeout(flash.t);flash.t=setTimeout(()=>f.style.display='none',2500)}
+const cl=id=>D.clients.find(c=>c.id===id);
+const clName=id=>{const c=cl(id);return c?esc(c.name):'؟'};
+const wk=id=>D.workers.find(w=>w.id===id);
+const ROLE={koori:'كوري (عامل المزرعة)',driver:'سائق'};
+// forms
+const val=(id,def)=>F[id]!==undefined?F[id]:(def!==undefined?def:'');
+const I=(id,label,o={})=>`<label>${label}<input id="${id}" data-f ${o.type?`type="${o.type}"`:''} ${o.num?'inputmode="decimal" dir="ltr" placeholder="0"':''} ${o.list?`list="${o.list}"`:''} value="${esc(val(id,o.def))}"></label>`;
+const N=(id,label,def)=>I(id,label,{num:1,def});
+const DT=(id)=>I(id,'التاريخ',{type:'date',def:today()});
+const S=(id,label,opts,rr)=>`<label>${label}<select id="${id}" data-f ${rr?'data-rr':''}>${opts.map(([v,t])=>`<option value="${esc(v)}"${String(val(id))===String(v)?' selected':''}>${esc(t)}</option>`).join('')}</select></label>`;
+const clientSel=(id,lab='الزبون')=>S(id,lab,[['','اختار الزبون'],...D.clients.map(c=>[c.id,c.name])]);
+const workerSel=(id,role,lab)=>S(id,lab,[['','اختار'],...D.workers.filter(w=>w.role===role).map(w=>[w.id,w.name])],1);
+const TOT=(id,a,b)=>`<p>المجموع: <b id="${id}" data-a1="${a}" data-a2="${b}">${money(num(val(a))*num(val(b)))}</b></p>`;
+const del=(k,id,msg)=>confirmDel===k+id?`<div class="warn">${msg||'متأكد بغيتي تمسح؟'}<br><button class="lnk red" data-a="del" data-k="${k}" data-id="${id}">أكيد، مسح</button> <button class="lnk" data-a="nodel">لا</button></div>`:`<button class="lnk" data-a="askdel" data-k="${k}" data-id="${id}">مسح</button>`;
+const OPENR=new Set();
+const fold=(key,title,sub,full)=>OPENR.has(key)?`<div class="foldbox"><button class="row foldh" data-a="tg" data-k="${key}"><span><b>${title}</b>${sub?` <small>${sub}</small>`:''}</span><b>⌃</b></button>${full}</div>`:`<button class="row foldh" data-a="tg" data-k="${key}"><span><b>${title}</b>${sub?` <small>${sub}</small>`:''}</span><b>⌄</b></button>`;
+const item=(t,sub,right,extra='')=>`<div class="item"><div><b>${t}</b><small>${sub}</small></div><div><b>${right}</b>${extra}</div></div>`;
+const line=(a,b,cls='')=>`<div class="line"><span>${a}</span><b class="${cls}">${b}</b></div>`;
+const KDL=()=>[['g','مورد السلع'],['p',SP[0]==='roki'?'مورد الديك الرومي':'مورد الدجاج']];
+const kdName=x=>(KDL().find(t=>t[0]===x.kd)||['','']) [1];
+const supLab=x=>x.name+' ('+kdName(x)+')';
+const supName=b=>{const x=D.suppliers.find(y=>y.id===b.sid);return x?x.name:(b.supplier||'؟')};
+const P0=e=>Array.isArray(e.pays)?sum(e.pays,p=>p.amount):(e.paid===undefined?e.amount:e.paid);
+const bP0=b=>Array.isArray(b.pays)?sum(b.pays,p=>p.amount):(b.paid===undefined?b.kg*b.price:b.paid);
+let ALLOC=new Map(),ALLOCS=new Map(),PAYALLOC=new Map();
+function migrate(){const tot=(k,e)=>k==='buys'?e.kg*e.price:e.amount;['cexp','rexp','xexp','buys'].forEach(k=>D[k].forEach(e=>{if(!Array.isArray(e.pays)){const a=e.paid===undefined?tot(k,e):e.paid;e.pays=a>0?[{id:1,date:e.date||today(),amount:a}]:[];delete e.paid}}))}
+function calcAlloc(){ALLOC=new Map();ALLOCS=new Map();PAYALLOC=new Map();const cmp=(a,b)=>a.d===b.d?a.i-b.i:a.d.localeCompare(b.d);
+ const run=(items,pays)=>{items.sort(cmp);[...pays].sort((a,b)=>(a.date||'').localeCompare(b.date||'')||a.id-b.id).forEach(p=>{let left=p.amount;const list=[];items.forEach(it=>{if(left<=0.0001)return;const need=it.t-it.p-(ALLOC.get(it.o)||0);if(need<=0.0001)return;const a=Math.min(need,left);left-=a;ALLOC.set(it.o,(ALLOC.get(it.o)||0)+a);if(!ALLOCS.has(it.o))ALLOCS.set(it.o,[]);ALLOCS.get(it.o).push({p,amt:a});list.push({o:it.o,amt:a})});PAYALLOC.set(p,{list,left})})};
+ D.suppliers.forEach(x=>run([...D.buys.filter(b=>b.sid===x.id).map(b=>({o:b,t:b.kg*b.price,p:bP0(b),d:b.date||'',i:b.id})),...D.cexp.filter(e=>e.sid===x.id).map(e=>({o:e,t:e.amount,p:P0(e),d:e.date||'',i:1e6+e.id}))],D.spays.filter(p=>p.sid===x.id)));
+D.clients.forEach(c=>run(D.sales.filter(x=>x.client===c.id).map(x=>({o:x,t:x.kg*x.price,p:x.paid||0,d:x.date||'',i:x.id})),D.pays.filter(p=>p.client===c.id)));
+ D.workers.forEach(w=>run([...D.cexp.filter(e=>e.wid===w.id).map(e=>({o:e,t:e.amount,p:P0(e),d:e.date||'',i:e.id})),...D.rexp.filter(e=>e.wid===w.id).map(e=>({o:e,t:e.amount,p:P0(e),d:e.date||'',i:1e6+e.id}))],D.wpays.filter(p=>p.wid===w.id)))}
+const sP=s=>Math.min(s.kg*s.price,(s.paid||0)+(ALLOC.get(s)||0));
+const itemLabel=o=>D.sales.includes(o)?`${o.cycle?'دورة «'+esc((cyc(o.cycle)||{}).name||'؟')+'»':'إعادة البيع'} · بيع ${o.date} (${o.kg} كيلو)`:D.buys.includes(o)?`إعادة البيع · شراء ${o.date}`:D.cexp.includes(o)?`دورة «${esc((cyc(o.cycle)||{}).name||'؟')}» · ${esc(catOf(o.cat)[1])} (${o.date})`:`إعادة البيع · ${esc(o.cat)} (${o.date})`;
+const P=e=>Math.min(e.amount,P0(e)+(ALLOC.get(e)||0));
+const bP=b=>Math.min(b.kg*b.price,bP0(b)+(ALLOC.get(b)||0));
+const supStats=id=>{const bb=D.buys.filter(b=>b.sid===id),pp=D.spays.filter(p=>p.sid===id),ce=D.cexp.filter(e=>e.sid===id);const tot=sum(bb,b=>b.kg*b.price)+sum(ce,e=>e.amount),paid=sum(bb,bP0)+sum(ce,P0)+sum(pp,p=>p.amount);return{bb,pp,ce,tot,paid,rem:tot-paid,kg:sum(bb,b=>b.kg)}};
+const paidSel=()=>S('pm','الأداء',[['full','خالص (دفعت كلشي)'],['none','باقي (ما خلصتش)'],['part','خلصت جزء']],1)+(val('pm','full')==='part'?N('pp','شحال خلصت (DH)'):'');
+const mkPays=(amt,d)=>{const a=paidOf(amt);return a>0?[{id:1,date:d,amount:a}]:[]};
+const paidOf=amount=>{const m=val('pm','full');return m==='full'?amount:m==='none'?0:Math.min(num(val('pp')),amount)};
+const expTotals=l=>({t:sum(l,e=>e.amount),p:sum(l,P)});
+let pedX=null;
+function payBtn(k,id,rem){if(rem<=0.005)return '<small class="good">خالص ✓</small>';
+ if(payX&&payX.k===k&&payX.id===id)return `<div class="warn" style="text-align:start">باقي ${money(rem)}${I('pxd','تاريخ الخلاص',{type:'date',def:today()})}<label>المبلغ<input id="px" data-f inputmode="decimal" dir="ltr" value="${esc(val('px',rem))}"></label><button class="main" data-a="dopay" data-k="${k}" data-id="${id}">سجل الخلاص</button> <button class="lnk" data-a="payfull" data-k="${k}" data-id="${id}">خالص كامل (${money(rem)})</button> <button class="lnk" data-a="payno">إلغاء</button></div>`;
+ return `<button class="lnk" data-a="payx" data-k="${k}" data-id="${id}">+ زيد خلاص</button>`}
+function payLine(k,e,p){if(pedX&&pedX.k===k&&pedX.id===e.id&&pedX.pid===p.id)return `<div class="warn" style="text-align:start">${I('pe_d','التاريخ',{type:'date'})}${I('pe_a','المبلغ (DH)',{num:1})}<button class="main" data-a="pesave">حفظ</button> <button class="lnk" data-a="peno">إلغاء</button></div>`;
+ const ck=`P${k}${e.id}_${p.id}`;
+ return `<div class="pl"><span>${esc(p.date)}</span><b>${money(p.amount)}</b><button class="lnk" data-a="pedit" data-k="${k}" data-id="${e.id}" data-pid="${p.id}">تعديل</button>`+(confirmDel===ck?`<button class="lnk red" data-a="pdel" data-k="${k}" data-id="${e.id}" data-pid="${p.id}">أكيد، مسح</button><button class="lnk" data-a="nodel">لا</button>`:`<button class="lnk" data-a="paskdel" data-k="${k}" data-id="${e.id}" data-pid="${p.id}">مسح</button>`)+`</div>`}
+function ledger(k,e){const tot=k==='buys'?e.kg*e.price:e.amount,ps=e.pays||[],via=ALLOCS.get(e)||[],rem=tot-(k==='buys'?bP(e):P(e));
+ let h=`<div class="ledger"><b>الخلاصات (${ps.length+via.length})</b>`;
+ if(!ps.length&&!via.length)h+='<small>ما تسجل حتى خلاص.</small>';
+ ps.forEach(p=>h+=payLine(k,e,p));
+ via.forEach(v=>h+=`<div class="pl"><span>${esc(v.p.date)} · عبر خلاص ${v.p.sid?'المورد':'العامل'}</span><b>${money(v.amt)}</b></div>`);
+ return h+payBtn(k,e.id,rem)+'</div>'}
+function expRow(k,e,title,subt){const rem=e.amount-P(e);return ED(k,e,fold(k+e.id,title,esc(e.date||''),`<div class="item"><div><b>${title}</b><small>${subt}</small><small>خلصت ${money(P(e))} · باقي ${money(rem)}</small></div><div><b>${money(e.amount)}</b>${EDB(k,e.id)}${del(k,e.id)}</div></div>${ledger(k,e)}`))}
+function expGroups(k,list,keyOf,labelOf,subOf,order){const keys=order||[...new Set(list.map(keyOf))];return keys.map(key=>{const l=list.filter(e=>keyOf(e)===key);if(!l.length)return '';const t=expTotals(l);return `<div class="grp"><b>${labelOf(key)}</b><small>المجموع ${money(t.t)} · خلصت ${money(t.p)} · باقي ${money(t.t-t.p)}</small></div>`+[...l].reverse().map(e=>expRow(k,e,labelOf(key),subOf(e))).join('')}).join('')||'<p class="note">ما كاين حتى مصروف.</p>'}
+const cyc=id=>D.cycles.find(c=>c.id===id);
+
+const EDB=(k,id)=>`<button class="lnk" data-a="edit" data-k="${k}" data-id="${id}">تعديل</button>`;
+function edFields(k,x){const d=['date','التاريخ','date',x.date];
+ if(k==='sales')return [d,['kg','الكيلوات','n',x.kg],['price','ثمن الكيلو (DH)','n',x.price],['paid','شحال عطاك ساعة البيع','n',x.paid||0]];
+ if(k==='buys')return [d,['kg','الكيلوات','n',x.kg],['price','ثمن الكيلو (DH)','n',x.price]];
+ if(k==='pays'||k==='spays'||k==='wpays')return [d,['amount','المبلغ (DH)','n',x.amount]];
+ const f=[d];if(x.price!==undefined)f.push(['qty','العدد / الأيام','n',x.qty],['price','الثمن / الأجر (DH)','n',x.price]);else f.push(['amount','المبلغ (DH)','n',x.amount]);
+ f.push(['note','ملاحظة','t',x.note||'']);if(k==='xexp')f.unshift(['cat','السمية','t',x.cat]);return f}
+function edStart(k,id){const x=D[k].find(y=>y.id===id);if(!x)return;Object.keys(F).filter(i=>i.startsWith('ef_')).forEach(i=>delete F[i]);edFields(k,x).forEach(([n,,,v])=>F['ef_'+n]=String(v));edX={k,id}}
+function edBox(k,x){return `<div class="warn" style="text-align:start"><b>تعديل</b>`+edFields(k,x).map(([n,l,t])=>I('ef_'+n,l,t==='date'?{type:'date'}:t==='n'?{num:1}:{})).join('')+`<p class="note">المجموع الكلي كيتعاود بوحدو.</p><button class="main" data-a="saveed">حفظ التعديل</button> <button class="lnk" data-a="noed">إلغاء</button></div>`}
+const ED=(k,x,h)=>edX&&edX.k===k&&edX.id===x.id?edBox(k,x):h;
+function edSave(){const {k,id}=edX,x=D[k].find(y=>y.id===id);if(!x){edX=null;return}const g=n=>val('ef_'+n);const dt=g('date')||x.date;
+ if(k==='sales'||k==='buys'){const kg=num(g('kg')),pr=num(g('price'));if(kg<=0||pr<=0){flash('كتب الكيلو والثمن');return}x.date=dt;x.kg=kg;x.price=pr;if(k==='sales')x.paid=Math.max(0,Math.min(num(g('paid')),kg*pr))}
+ else if(k==='pays'||k==='spays'||k==='wpays'){const m=num(g('amount'));if(m<=0){flash('كتب المبلغ');return}x.date=dt;x.amount=m}
+ else{let am;if(x.price!==undefined){const q=num(g('qty')),pr=num(g('price'));if(q<=0||pr<=0){flash('كتب العدد والثمن');return}x.qty=q;x.price=pr;am=q*pr}else{am=num(g('amount'));if(am<=0){flash('كتب المبلغ');return}}
+  if(k==='xexp'){const n=(g('cat')||'').trim();if(n)x.cat=n}x.amount=am;x.date=dt;x.note=(g('note')||'').trim()}
+ Object.keys(F).filter(i=>i.startsWith('ef_')).forEach(i=>delete F[i]);edX=null;save();render();flash('تعدل')}
+const buyRow=b=>{const t=b.kg*b.price,rem=t-bP(b);return ED('buys',b,fold('buys'+b.id,esc(supName(b)),esc(b.date||''),`<div class="item"><div><b>${esc(supName(b))}</b><small>${b.date} · ${b.kg} كيلو × ${b.price}</small><small>عطيتو ${money(bP(b))} · باقي ${money(rem)}</small></div><div><b>${money(t)}</b>${EDB('buys',b.id)}${del('buys',b.id)}</div></div>${ledger('buys',b)}`))};
+const brk=p=>{const a=PAYALLOC.get(p);if(!a)return '';return `<div class="ledger"><b>اتحسب على:</b>`+a.list.map(x=>`<div class="pl"><span>${itemLabel(x.o)}</span><b>${money(x.amt)}</b></div>`).join('')+(a.left>0.005?`<div class="pl"><small>زايد، ما تحسب على حتى مصروف</small><b>${money(a.left)}</b></div>`:'')+(!a.list.length&&a.left<=0.005?'<small>—</small>':'')+`</div>`};
+const wpayList=pp=>pp.length?[...pp].reverse().map(p=>ED('wpays',p,fold('wpays'+p.id,esc((wk(p.wid)||{}).name||'؟'),p.date,item(esc((wk(p.wid)||{}).name||'؟'),p.date,money(p.amount),EDB('wpays',p.id)+del('wpays',p.id))+brk(p)))).join(''):'<p class="note">ما كاين حتى خلاص.</p>';
+const spayList=pp=>pp.length?[...pp].reverse().map(p=>ED('spays',p,fold('spays'+p.id,esc((D.suppliers.find(y=>y.id===p.sid)||{}).name||'؟'),p.date,item(esc((D.suppliers.find(y=>y.id===p.sid)||{}).name||'؟'),p.date,money(p.amount),EDB('spays',p.id)+del('spays',p.id))+brk(p)))).join(''):'<p class="note">ما كاين حتى خلاص.</p>';
+// summaries
+const inRange=(f)=>d=>f(d);
+function cycAgg(ids){const ex=D.cexp.filter(e=>ids.includes(e.cycle)),ss=D.sales.filter(s=>ids.includes(s.cycle)),pp=D.pays.filter(p=>ids.includes(p.cycle));const inc=sum(ss,saleTot),col=sum(ss,sP);return{ex,ss,pp,exp:sum(ex,e=>e.amount),expP:sum(ex,P),inc,col,unc:inc-col,kg:sum(ss,s=>s.kg)}}
+function resAgg(f){const rs=D.sales.filter(s=>s.cycle==null&&f(s.date)),rp=D.pays.filter(p=>p.cycle==null&&f(p.date)),bb=D.buys.filter(b=>f(b.date)),re=D.rexp.filter(e=>f(e.date)),sp=D.spays.filter(p=>f(p.date));
+ const inc=sum(rs,saleTot),col=sum(rs,s=>s.paid||0)+sum(D.pays.filter(p=>f(p.date)),p=>sum(((PAYALLOC.get(p)||{}).list||[]).filter(x=>x.o.cycle==null),x=>x.amt)),exp=sum(bb,b=>b.kg*b.price)+sum(re,e=>e.amount),expP=sum(bb,bP)+sum(re,P);
+ const as=D.sales.filter(s=>s.cycle==null),ap=D.pays.filter(p=>p.cycle==null);
+ return{rs,rp,bb,re,sp,inc,col,exp,expP,unc:sum(as,s=>saleTot(s)-sP(s)),kg:sum(rs,s=>s.kg),bkg:sum(bb,b=>b.kg)}}
+const cls=n=>n>=0?'good':'bad';
+function sumCards(a,uncLabel){const cash=a.col-a.expP,net=a.inc-a.exp,rem=Math.max(0,a.exp-a.expP);
+ return `<h3>الربح الإجمالي</h3><div class="cards"><div><span>المصاريف</span><b>${money(a.exp)}</b></div><div><span>المداخيل</span><b>${money(a.inc)}</b><small>${a.kg} كيلو</small></div><div class="wide"><span>الربح الصافي</span><b class="${cls(net)}">${money(net)}</b></div></div>
+ <h3>الحالة</h3><div class="cards"><div><span>المصاريف المدفوعة</span><b>${money(a.expP)}</b></div><div><span>المداخيل المستخلصة</span><b>${money(a.col)}</b></div><div class="wide"><span>الربح الحالي</span><b class="${cls(cash)}">${money(cash)}</b></div></div>
+ <h3>الحساب المتبقي</h3><div class="cards"><div><span>المصاريف الغير مدفوعة</span><b>${money(rem)}</b></div><div><span>المداخيل الغير مستخلصة</span><b>${money(a.unc)}</b>${uncLabel?`<small>${esc(uncLabel)}</small>`:''}</div></div>`}
+function cycSumHtml(ids){const a=cycAgg(ids);let h=sumCards(a);h+='<h3>المصاريف حسب النوع</h3>';
+ const rows=CATS.map(k=>{const l=a.ex.filter(e=>e.cat===k[0]);return [k[1],sum(l,e=>e.amount),sum(l,e=>e.amount-P(e))]}).filter(x=>x[1]>0);h+=rows.length?rows.map(r=>line(r[0],money(r[1])+(r[2]>0.005?' · باقي '+money(r[2]):' ✓'))).join(''):'<p class="note">ما كاين حتى مصروف.</p>';
+ if(a.kg>0&&a.exp>0)h+=line('تكلفة الكيلو المباع',money(a.exp/a.kg));return h}
+function resPicker(){return `<label>اختار النهار<input type="date" id="rdy" data-f data-rr value="${esc(val('rdy',today()))}"></label>`}
+function resFilter(){const d=val('rdy',today());return [x=>x===d,'نهار '+d]}
+function resSumHtml(){const [f,lab]=resFilter(),a=resAgg(f);
+ 
+ let h=resPicker()+''+`<p class="note"><b>${lab}</b></p>`+sumCards(a,'باقي عند الزبائن (حتى دابا، كلشي)');
+ const bt=sum(a.bb,b=>b.kg*b.price),bpd=sum(a.bb,bP);
+ h+=`<h3>الشراء ديال هاد النهار</h3>`+(a.bb.length?line('مجموع الشراء ('+a.bkg+' كيلو)',money(bt))+line('عطيت للموردين',money(bpd))+line('باقي خاصني نعطي',money(bt-bpd),bt-bpd>0.005?'bad':'good')+a.bb.map(b=>item(esc(supName(b)),`${b.kg} كيلو × ${b.price}`,money(b.kg*b.price),`<small>عطيتو ${money(bP(b))} · باقي ${money(b.kg*b.price-bP(b))}</small>`)).join(''):'<p class="note">ما كاين حتى شراء فهاد النهار.</p>');
+ h+=`<p class="note">الشراء ${a.bkg} كيلو. الفلوس لي تخلصو كيتحسبو بنهار الخلاص.</p><h3>تفاصيل النهار</h3>`;
+ const days=[...new Set([...a.re,...a.bb,...a.rs,...a.rp].map(x=>x.date))].sort().reverse();
+ h+=days.length?days.map(d=>{const s=sum(a.rs.filter(x=>x.date===d),saleTot),b=sum(a.bb.filter(x=>x.date===d),x=>x.kg*x.price),e=sum(a.re.filter(x=>x.date===d),x=>x.amount),p=s-b-e;return `<div class="item"><div><b>${d}</b><small>بيع ${money(s)} · شراء ${money(b)} · مصاريف ${money(e)}</small></div><div><b class="${cls(p)}">${money(p)}</b><small>الربح</small></div></div>`}).join(''):'<p class="note">ما كاين حتى حركة فهاد الفترة.</p>';
+ return h}
+// computations
+const saleTot=s=>s.kg*s.price;
+const clStats=id=>{const ss=D.sales.filter(s=>s.client===id),pp=D.pays.filter(p=>p.client===id);const tot=sum(ss,saleTot),paid=sum(ss,s=>s.paid||0)+sum(pp,p=>p.amount);return{tot,paid,rem:tot-paid,kg:sum(ss,s=>s.kg),ss,pp}};
+const CATS=[['chick','كتكوت','qp','عدد الكتاكيت','ثمن الكتكوت'],['feed','علف','qp','الكيلوات','ثمن الكيلو'],['labor','عامل (كوري)','wd','koori'],['driver','سائق','wd','driver'],['food','أكل العمال','am'],['maint','صيانة السيارة','am'],['fuel','وقود','am'],['med','دواء الدجاج','am'],['gas','غاز البوطان','am'],['other','أخرى','am']];
+const catOf=k=>CATS.find(c=>c[0]===k)||CATS[9];
+function cycStats(id){const ex=D.cexp.filter(e=>e.cycle===id),ss=D.sales.filter(s=>s.cycle===id),pp=D.pays.filter(p=>p.cycle===id);
+ const exp=sum(ex,e=>e.amount),inc=sum(ss,saleTot),col=sum(ss,s=>s.paid||0)+sum(pp,p=>p.amount);return{ex,ss,pp,exp,inc,col,rem:inc-col,kg:sum(ss,s=>s.kg),profit:inc-exp}}
+// views
+const TABS=[['home','الملخص','📊'],['cyc','دورات الإنتاج','🐣'],['res','إعادة البيع','🔁'],['cli','الزبائن','👥'],['wrk','العمال','🧑‍🌾'],['sup','الموردين','🚚'],['xex','مصاريف خارجية','💸'],['bk','نسخة احتياطية','💾']];
+const sub=(cur,arr,a)=>`<div class="sub">${arr.map(([k,l])=>`<button data-a="${a}" data-k="${k}" class="${cur===k?'on':''}">${l}</button>`).join('')}</div>`;
+function saleList(ss){return ss.length?[...ss].reverse().map(s=>ED('sales',s,fold('sales'+s.id,clName(s.client),s.date,item(clName(s.client),`${s.date} · ${s.kg} كيلو × ${s.price}`,money(saleTot(s)),`<small>خلص ساعة البيع ${money(s.paid||0)} · من بعد ${money(sP(s)-(s.paid||0))} · باقي ${money(saleTot(s)-sP(s))}</small>`+EDB('sales',s.id)+del('sales',s.id))))).join(''):'<p class="note">ما كاين والو.</p>'}
+function payList(pp){return pp.length?[...pp].reverse().map(p=>ED('pays',p,fold('pays'+p.id,clName(p.client),p.date,item(clName(p.client),p.date,money(p.amount),EDB('pays',p.id)+del('pays',p.id))+brk(p)))).join(''):'<p class="note">ما كاين حتى خلاص.</p>'}
+const saleForm=(sc)=>`<h3>بيع جديد</h3>${D.clients.length?'':'<p class="note">زيد الزبون الأول من قسم «الزبائن».</p>'}${clientSel('sc')}${DT('sd')}${N('sk','الكيلوات')}${N('sp','ثمن الكيلو (DH)')}${TOT('stot','sk','sp')}${N('sx','شحال عطاك الزبون دابا (DH)، والباقي كتسجلو فصفحة الزبون')}<button class="main" data-a="addsale" data-k="${sc}">سجل البيع</button>`;
+const payForm=(sc)=>`<h3>خلاص جديد (فلوس شديتها من عند شي واحد)</h3>${clientSel('pc')}${DT('pd')}${N('pa','المبلغ (DH)')}<button class="main" data-a="addpay" data-k="${sc}">سجل الخلاص</button>`;
+
+function vCycles(){
+ if(openCycle){const c=cyc(openCycle);if(!c){openCycle=null;return vCycles()}const st=cycStats(c.id);let h=`<button class="lnk" data-a="back">← رجوع للدورات</button><h2>${esc(c.name)}</h2><small>${c.start}${c.end?' → '+c.end:' · جارية'}</small>`;
+  h+=sub(csub,[['sum','الملخص'],['exp','مصاريف'],['inc','مداخيل']],'csub');
+  if(csub==='sum'){h+=cycSumHtml([c.id]);
+   h+=`<h3>إنهاء الدورة</h3>`+(c.end?`<button class="main sec" data-a="reopen">رجع الدورة جارية</button>`:`<button class="main sec" data-a="endcyc">سالي هاد الدورة (اليوم)</button>`)+'<p></p>'+del('cycles',c.id,`غادي تتمسح الدورة بجميع المصاريف (${st.ex.length}) والمبيعات (${st.ss.length}) ديالها. متأكد؟`);}
+  if(csub==='exp'){const k=catOf(val('ec','chick'));
+   h+=`<h3>مصروف جديد</h3>`+S('ec','النوع',CATS.map(c=>[c[0],c[1]]),1);
+   if(k[2]==='qp')h+=N('eq',k[3])+N('ep',k[4])+TOT('etot','eq','ep');
+   else if(k[2]==='wd'){h+=workerSel('ew',k[3],k[3]==='koori'?'العامل (كوري)':'السائق')+(D.workers.some(w=>w.role===k[3])?'':'<p class="note">زيد العامل من قسم «العمال».</p>')+N('ed','عدد أيام الخدمة فهاد الدورة')+N('er','الأجر لليوم (DH)')+TOT('etot','ed','er');}
+   else h+=N('ea','المبلغ (DH)');
+   if(k[0]==='chick'||k[0]==='feed')h+=S('esup','المورد',[['','بلا مورد'],...D.suppliers.map(x=>[x.id,supLab(x)])])+(D.suppliers.length?'':'<p class="note">زيد المورد من قسم «الموردين» باش تختارو هنا.</p>');
+   h+=paidSel()+DT('edt')+I('en','ملاحظة')+`<button class="main" data-a="addcexp">سجل المصروف</button><h3>المصاريف (${st.ex.length})</h3>`+expGroups('cexp',st.ex,e=>e.cat,key=>catOf(key)[1],e=>{const k=catOf(e.cat);const d=k[2]==='qp'?`${e.qty} × ${e.price}`:k[2]==='wd'?`${esc(e.wname||'؟')} · ${e.qty} يوم × ${e.price}`:'';const sp=e.sid?D.suppliers.find(y=>y.id===e.sid):null;return `${e.date}${d?' · '+d:''}${sp?' · المورد: '+esc(sp.name):''}${e.note?' · '+esc(e.note):''}`},CATS.map(c=>c[0]));}
+  if(csub==='inc')h+=saleForm(c.id)+`<h3>المداخيل (${st.ss.length})</h3>`+saleList(st.ss);
+  return h;}
+ let h=`<h3>دورة جديدة</h3>${I('cn','سمية الدورة (مثلا: دورة نونبر)')}${DT('cs')}<button class="main" data-a="addcyc">زيد الدورة</button><h3>الدورات (${D.cycles.length})</h3>`;
+ h+=D.cycles.length?[...D.cycles].reverse().map(c=>{const s=cycStats(c.id);return `<button class="row" data-a="opencyc" data-id="${c.id}"><span><b>${esc(c.name)}</b> <span class="pill">${c.end?'سالات':'جارية'}</span></span><b>›</b></button>`}).join(''):'<p class="note">ما كاين حتى دورة. زيد وحدة.</p>';
+ return h}
+function vResale(){
+ let h=sub(rsub,[['sum','الملخص'],['exp','مصاريف'],['sale','مداخيل']],'rsub');
+ if(rsub==='sum')h+=resSumHtml();
+ if(rsub==='exp'){const pn=SP[0]==='roki'?'الديك الرومي':'الدجاج',isb=val('rc','__buy')==='__buy',driver=val('rc','__buy')==='سائق';h+=`<h3>مصروف جديد</h3>`+S('rc','النوع',[['__buy','شراء '+pn+' من مورد'],['وقود','وقود'],['سائق','سائق (باليوم)'],['صيانة السيارة','صيانة السيارة'],['أخرى','أخرى']],1);
+  if(isb){h+=`${D.suppliers.length?'':'<p class="note">زيد المورد الأول من قسم «الموردين».</p>'}${S('bs','المورد',[['','اختار المورد'],...D.suppliers.filter(x=>x.kd==='p').map(x=>[x.id,supLab(x)])])}${DT('bd')}${N('bk','الكيلوات')}${N('bp','ثمن الشراء للكيلو (DH)')}${TOT('btot','bk','bp')}${paidSel()}<button class="main" data-a="addbuy">سجل الشراء</button><h3>المشتريات (شراء ${pn})</h3>`+(D.buys.length?[...D.buys].reverse().map(buyRow).join(''):'<p class="note">ما كاين حتى شراء.</p>')+'<h3>المصاريف الأخرى</h3>'+expGroups('rexp',D.rexp,e=>e.cat,esc,e=>`${e.date}${e.wname?' · '+esc(e.wname)+' · '+(e.qty||1)+' يوم':''}${e.note?' · '+esc(e.note):''}`)}
+  else{
+  if(driver)h+=workerSel('rw','driver','السائق')+N('rd','عدد الأيام',1)+N('rr','الأجر لليوم (DH)')+TOT('rtot','rd','rr');else h+=N('ra','المبلغ (DH)');
+  h+=paidSel()+DT('rdt')+I('rn','ملاحظة')+`<button class="main" data-a="addrexp">سجل المصروف</button><h3>المصاريف</h3>`+expGroups('rexp',D.rexp,e=>e.cat,esc,e=>`${e.date}${e.wname?' · '+esc(e.wname)+' · '+(e.qty||1)+' يوم':''}${e.note?' · '+esc(e.note):''}`);h+='<h3>المشتريات</h3>'+(D.buys.length?[...D.buys].reverse().map(buyRow).join(''):'<p class="note">ما كاين حتى شراء.</p>');}}
+ if(false){h+=`<h3>شراء من مورد</h3>${D.suppliers.length?'':'<p class="note">زيد المورد الأول من قسم «الموردين».</p>'}${S('bs','المورد',[['','اختار المورد'],...D.suppliers.filter(x=>x.kd==='p').map(x=>[x.id,supLab(x)])])}${DT('bd')}${N('bk','الكيلوات')}${N('bp','ثمن الشراء للكيلو (DH)')}${TOT('btot','bk','bp')}${paidSel()}<button class="main" data-a="addbuy">سجل الشراء</button><h3>المشتريات</h3>`+(D.buys.length?[...D.buys].reverse().map(buyRow).join(''):'<p class="note">ما كاين حتى شراء.</p>');}
+ if(rsub==='sale')h+=saleForm('r')+'<h3>المداخيل</h3>'+saleList(D.sales.filter(s=>s.cycle==null));
+ return h}
+const scopeSel=()=>S('pcs','فين تسجل الخلاص',[['r','إعادة البيع'],...D.cycles.map(c=>['c'+c.id,'دورة: '+c.name])]);
+const pdfBox=(who,id)=>`<h3>كشف حساب PDF</h3><p class="note">اختار الفترة (اختياري) وصيفطو.</p>${I('pf','من تاريخ',{type:'date'})}${I('pt','إلى تاريخ',{type:'date'})}<button class="main" data-a="pdfshare" data-k="${who}" data-id="${id}">إنشاء PDF ومشاركته</button><button class="main sec" data-a="pdfdl" data-k="${who}" data-id="${id}">تنزيل PDF</button>`;
+function vClients(){
+ if(openClient){const c=cl(openClient);if(!c){openClient=null;return vClients()}const s=clStats(c.id);
+  const rows=[...s.ss.map(x=>({d:x.date,t:`${x.cycle?'الدورة: '+esc((cyc(x.cycle)||{}).name||'؟'):'إعادة البيع'} · ${x.kg} كيلو × ${x.price}`,v:saleTot(x)})),...s.pp.map(p=>({d:p.date,t:'خلاص',v:-p.amount})),...s.ss.filter(x=>x.paid>0).map(x=>({d:x.date,t:'خلص ساعة البيع',v:-x.paid}))].sort((a,b)=>b.d.localeCompare(a.d));
+  return `<button class="lnk" data-a="back">← رجوع للزبائن</button><h2>${esc(c.name)}</h2><div class="cards"><div><span>مجموع الشراء</span><b>${money(s.tot)}</b><small>${s.kg} كيلو</small></div><div><span>خلص</span><b>${money(s.paid)}</b></div><div class="wide"><span>باقي عليه</span><b class="${s.rem>0.005?'bad':'good'}">${money(s.rem)}</b></div></div>
+  <h3>شديت من عندو فلوس</h3><input type="hidden"><p class="note">الخلاص كيتحيد أوتوماتيك من أقدم بيع (فالدورات وإعادة البيع).</p>${DT('pd')}${N('pa','المبلغ (DH)')}<button class="main" data-a="addclpay" data-id="${c.id}">سجل الخلاص</button>`+pdfBox('c',c.id)+'<h3>البيعات (تعديل / مسح)</h3>'+saleList(s.ss)+'<h3>الخلاصات (تعديل / مسح)</h3>'+payList(s.pp)+'<h3>الحركات</h3>'+(rows.length?rows.map(r=>line(`${r.d} · ${r.t}`,(r.v<0?'−':'')+money(Math.abs(r.v)))).join(''):'<p class="note">ما كاين حتى حركة.</p>')+'<h3>مسح الزبون</h3>'+del('clients',c.id,`غادي يتمسح الزبون «${esc(c.name)}» مع ${s.ss.length} بيع و ${s.pp.length} خلاص ديالو. متأكد؟`);}
+ let h=`<h3>زيد زبون (حانوت)</h3>${I('cln','السمية')}<button class="main" data-a="addcli">زيد</button><h3>الزبائن (${D.clients.length})</h3>`;
+ return h+(D.clients.length?D.clients.map(c=>{const s=clStats(c.id);return `<button class="row" data-a="opencli" data-id="${c.id}"><span><b>${esc(c.name)}</b></span><b>›</b></button>`}).join(''):'<p class="note">ما كاين حتى زبون.</p>')}
+function vWorkers(){
+ if(openWorker){const w=wk(openWorker);if(!w){openWorker=null;return vWorkers()}
+  const ce=D.cexp.filter(e=>e.wid===w.id),re=D.rexp.filter(e=>e.wid===w.id);const byC=[...new Set(ce.map(e=>e.cycle))];
+  const tc=sum(ce,e=>e.amount),tr=sum(re,e=>e.amount),rem=sum(ce,e=>e.amount-P(e))+sum(re,e=>e.amount-P(e));
+  let h=`<button class="lnk" data-a="back">← رجوع للعمال</button><h2>${esc(w.name)}</h2><small>${ROLE[w.role]}${w.rate>0?' · '+money(w.rate)+' لليوم':''}</small><div class="cards"><div><span>دورات الإنتاج</span><b>${money(tc)}</b></div><div><span>إعادة البيع (يومي)</span><b>${money(tr)}</b></div><div><span>المجموع</span><b>${money(tc+tr)}</b></div><div><span>باقي خاصني نخلصو</span><b class="${rem>0.005?'bad':'good'}">${money(rem)}</b></div></div><h3>حسب الدورة</h3>`;
+  h+=byC.length?byC.map(id=>{const x=ce.filter(e=>e.cycle===id);return line(`${esc((cyc(id)||{}).name||'؟')} · ${sum(x,e=>e.qty)} يوم`,money(sum(x,e=>e.amount)))}).join(''):'<p class="note">ما خدم فحتى دورة.</p>';
+  h+=`<h3>خلصت للعامل</h3><p class="note">الخلاص كيتحيد من الأقدم للأحدث، من الدورات وإعادة البيع.</p>${DT('wd2')}${N('wa','المبلغ (DH)')}<button class="main" data-a="addwpay" data-id="${w.id}">سجل الخلاص</button>`+wpayList(D.wpays.filter(p=>p.wid===w.id))+'<h3>إعادة البيع (يومي)</h3>'+(re.length?[...re].reverse().map(e=>line(`${e.date} · ${e.qty||1} يوم`,money(e.amount))).join(''):'<p class="note">ما كاين والو.</p>');
+  return h+'<h3>مسح العامل</h3>'+del('workers',w.id,`غادي يتمسح العامل «${esc(w.name)}». المصاريف لي تسجلات ديالو كتبقى. متأكد؟`);}
+ let h=`<h3>زيد عامل</h3>${I('wn','السمية')}${S('wr','النوع',[['koori',ROLE.koori],['driver',ROLE.driver]])}<button class="main" data-a="addwrk">زيد</button><h3>العمال (${D.workers.length})</h3>`;
+ return h+(D.workers.length?D.workers.map(w=>{const t=sum(D.cexp.filter(e=>e.wid===w.id),e=>e.amount)+sum(D.rexp.filter(e=>e.wid===w.id),e=>e.amount);return `<button class="row" data-a="openwrk" data-id="${w.id}"><span><b>${esc(w.name)}</b></span><b>›</b></button>`}).join(''):'<p class="note">ما كاين حتى عامل.</p>')}
+function vSuppliers(){
+ if(openSup){const x=D.suppliers.find(y=>y.id===openSup);if(!x){openSup=null;return vSuppliers()}const s=supStats(x.id);
+  const rows=[...s.bb.map(b=>({d:b.date,t:`شراء ${b.kg} كيلو × ${b.price}`,v:b.kg*b.price})),...s.pp.map(p=>({d:p.date,t:'عطيتو',v:-p.amount})),...s.bb.filter(b=>bP0(b)>0).map(b=>({d:b.date,t:'عطيتو ساعة الشراء',v:-bP0(b)})),...s.ce.map(e=>({d:e.date,t:`${catOf(e.cat)[1]} (دورة: ${esc((cyc(e.cycle)||{}).name||'؟')})`,v:e.amount})),...s.ce.filter(e=>P0(e)>0).map(e=>({d:e.date,t:'عطيتو ساعة الشراء',v:-P0(e)}))].sort((a,b)=>b.d.localeCompare(a.d));
+  return `<button class="lnk" data-a="back">← رجوع للموردين</button><h2>${esc(x.name)}</h2><div class="card">${S('sdt','النوع',KDL())}${I('sdn','السمية',{})}<button class="main" data-a="supsave" data-id="${x.id}">سجل التعديل</button></div><div class="cards"><div><span>مجموع الشراء</span><b>${money(s.tot)}</b><small>${s.kg} كيلو</small></div><div><span>عطيتو</span><b>${money(s.paid)}</b></div><div class="wide"><span>باقي خاصني نعطيه</span><b class="${s.rem>0.005?'bad':'good'}">${money(s.rem)}</b></div></div>
+  <h3>عطيت المورد فلوس (كتحيد من المصاريف حسب الأقدم)</h3>${DT('sd2')}${N('sa','المبلغ (DH)')}<button class="main" data-a="addspay" data-id="${x.id}">سجل الخلاص</button>`+pdfBox('s',x.id)+'<h3>المشتريات (تعديل / مسح)</h3>'+(s.bb.length?[...s.bb].reverse().map(buyRow).join(''):'<p class="note">ما كاين.</p>')+(s.ce.length?'<h3>مصاريف الدورات (كتكوت / علف) من عندو</h3>'+[...s.ce].reverse().map(e=>item(esc(catOf(e.cat)[1]+' · '+((cyc(e.cycle)||{}).name||'؟')),e.date,money(e.amount),`<small>خلص ${money(P(e))} · باقي ${money(e.amount-P(e))}</small>`)).join(''):'')+'<h3>الخلاصات (تعديل / مسح)</h3><p class="note">الخلاص ديال المورد كيتحيد من الأقدم للأحدث، من المشتريات ومن مصاريف الدورات.</p>'+spayList(s.pp)+'<h3>الحركات</h3>'+(rows.length?rows.map(r=>line(`${r.d} · ${r.t}`,(r.v<0?'−':'')+money(Math.abs(r.v)))).join(''):'<p class="note">ما كاين حتى حركة.</p>')+'<h3>مسح المورد</h3>'+del('suppliers',x.id,`غادي يتمسح المورد «${esc(x.name)}» مع ${s.bb.length} شراء و ${s.pp.length} خلاص ديالو. متأكد؟`);}
+ const tn=kdName,sf0=val('sf',''),sf=(sf0==='g'||sf0==='p')?sf0:'';
+ const row=x=>{const s=supStats(x.id);return `<button class="row" data-a="opensup" data-id="${x.id}"><span><b>${esc(x.name)}</b>${tn(x)?` <small>(${esc(tn(x))})</small>`:''}</span><b>›</b></button>`};
+ const grp=(t,id)=>{const l=D.suppliers.filter(x=>x.kd===id);return l.length?`<h3>${esc(t)} (${l.length}) · باقي ${money(sum(l,x=>Math.max(0,supStats(x.id).rem)))}</h3>`+l.map(row).join(''):''};
+ let h=`<p class="note">الموردين ديال <b>${SP[1]}</b> (كل قسم عندو موردينو).</p><h3>زيد مورد</h3>${S('snt','النوع',KDL())}${I('sn','السمية')}<button class="main" data-a="addsup">زيد</button>`;
+ h+=`<div class="sub"><button data-a="setsf" data-k="" class="${sf===''?'on':''}">الكل</button>${KDL().map(t=>`<button data-a="setsf" data-k="${t[0]}" class="${sf===t[0]?'on':''}">${esc(t[1])}</button>`).join('')}</div>`;
+ h+=`<h3>الموردين (${D.suppliers.length})</h3>`;
+ if(!D.suppliers.length)h+='<p class="note">ما كاين حتى مورد.</p>';
+ else if(sf==='')h+=KDL().map(t=>grp(t[1],t[0])).join('');
+ else h+=grp((KDL().find(t=>t[0]===sf)||['',''])[1],sf)||'<p class="note">ما كاين حتى مورد فهاد النوع.</p>';
+ return h}
+function vHome(){
+ const clOwe=sum(D.clients,c=>Math.max(0,clStats(c.id).rem)),exOwe=sum(D.cexp,e=>e.amount-P(e))+sum(D.rexp,e=>e.amount-P(e))+sum(D.xexp,e=>e.amount-P(e)),suOwe=sum(D.suppliers,x=>Math.max(0,supStats(x.id).rem));
+ const last=D.cycles.length?D.cycles[D.cycles.length-1].id:'all';let hc=val('hc',last);if(hc!=='all'&&!cyc(+hc))hc='all';
+ const ids=hc==='all'?D.cycles.map(c=>c.id):[+hc];
+ const hm=val('hm','tot');
+ let h=`<div class="sub">${[['cyc','دورة الإنتاج'],['res','إعادة البيع'],['tot','المجموع']].map(([k,t])=>`<button data-a="sethm" data-k="${k}" class="${hm===k?'on':''}">${t}</button>`).join('')}</div>`;
+ if(hm==='cyc')return h+`<h2>دورة الإنتاج</h2>`+S('hc','اختار الدورة',[['all','كل الدورات'],...D.cycles.map(c=>[c.id,c.name])],1)+cycSumHtml(ids);
+ if(hm==='res')return h+`<h2>إعادة البيع</h2>`+resSumHtml();
+ const tm=val('tm','all'),yrs=[...new Set([today(),...D.sales,...D.cexp,...D.rexp,...D.buys,...D.xexp,...D.pays].map(x=>(typeof x==='string'?x:x.date||'').slice(0,4)).filter(Boolean))].sort().reverse(),yr=val('yr',yrs.includes(today().slice(0,4))?today().slice(0,4):yrs[0]);
+ h+=`<div class="sub"><button data-a="settm" data-k="all" class="${tm==='all'?'on':''}">المجموع كامل</button><button data-a="settm" data-k="y" class="${tm==='y'?'on':''}">السنوي</button></div>`;
+ if(tm==='y'){const f=d=>(d||'').slice(0,4)===yr,cs=D.sales.filter(x=>x.cycle!=null&&f(x.date)),ce=D.cexp.filter(e=>f(e.date)),r=resAgg(f),xe=D.xexp.filter(e=>f(e.date));
+  const cinc=sum(cs,saleTot),ccol=sum(cs,x=>x.paid||0)+sum(D.pays.filter(p=>f(p.date)),p=>sum(((PAYALLOC.get(p)||{}).list||[]).filter(x=>x.o.cycle!=null),x=>x.amt));
+  const unc=sum(D.sales.filter(x=>f(x.date)),x=>saleTot(x)-sP(x)),xt=sum(xe,e=>e.amount);
+  F.yr=yr;return h+S('yr','اختار العام',yrs.map(y=>[y,y]),1)+`<h2>المجموع ديال عام ${yr}</h2><p class="note">دورات + إعادة البيع + المصاريف الخارجية (${money(xt)}). كل شي كيتحسب بتاريخو فهاد العام.</p>`+sumCards({inc:cinc+r.inc,exp:sum(ce,e=>e.amount)+r.exp+xt,col:ccol+r.col,expP:sum(ce,P)+r.expP+sum(xe,P),unc,kg:sum(cs,x=>x.kg)+r.kg},'باقي عند الزبائن (بيوع هاد العام)')}
+ const all=cycAgg(D.cycles.map(c=>c.id)),r=resAgg(()=>true);
+ const xt=sum(D.xexp,e=>e.amount),xp=sum(D.xexp,P);
+ h+=`<h2>المجموع الكلي</h2><p class="note">دورات + إعادة البيع + المصاريف الخارجية (${money(xt)})</p>`+sumCards({inc:all.inc+r.inc,exp:all.exp+r.exp+xt,col:all.col+r.col,expP:all.expP+r.expP+xp,unc:all.unc+r.unc,kg:all.kg+r.kg});
+ return h+`<h3>الفلوس</h3>${line('باقي عند الزبائن',money(clOwe))}${line('باقي خاصني نخلص (مصاريف)',money(exOwe))}${line('باقي خاصني نعطي للموردين',money(suOwe))}`}
+function vXexp(){const t=expTotals(D.xexp);
+ let h=`<h3>مصروف خارجي جديد</h3><p class="note">مصاريف ماشي ديال الدورات ولا إعادة البيع (بحال صيانة السيارة). كتحسب غير فالمجموع الكلي فالملخص.</p>`+I('xn','السمية (كتب لي بغيتي)',{list:'xnames'})+`<datalist id="xnames">${[...new Set(D.xexp.map(e=>e.cat))].map(n=>`<option value="${esc(n)}">`).join('')}</datalist>`+N('xa','المبلغ (DH)')+paidSel()+DT('xdt')+I('xnote','ملاحظة')+`<button class="main" data-a="addxexp">سجل المصروف</button>`;
+ h+=`<h3>المصاريف الخارجية (${D.xexp.length})</h3>`+line('المجموع',money(t.t))+line('خلصت',money(t.p))+line('باقي',money(t.t-t.p),t.t-t.p>0.005?'bad':'good');
+ return h+expGroups('xexp',D.xexp,e=>e.cat,esc,e=>`${e.date}${e.note?' · '+esc(e.note):''}`)}
+const aStat=()=>{const a=aGet(),f=t=>t?new Date(t).toLocaleString('fr-MA'):'حتى مرة';return `<h3>النسخة الأوطوماتيكية</h3><p class="note">كل نهار، فاش تحل التطبيق، كتمشي نسخة للإيميل: <b dir="ltr">${esc(PROF?PROF.email:'')}</b> وكتتحط نسخة أخرى فهاد الهاتف.</p><p class="note">آخر نسخة فالإيميل: ${f(a.sent)}${a.fail?' (آخر محاولة فشلات: '+esc(a.fail)+')':''}<br>آخر نسخة فالهاتف: ${f(a.snap)}</p><button class="main" data-a="autonow">صيفط نسخة للإيميل دابا</button>${snaps().length?'<h3>النسخ لي فالهاتف</h3>'+snaps().map((x,i)=>`<div class="row"><span>${new Date(x.at).toLocaleDateString('fr-MA')}</span><button class="main sec" data-a="rsnap" data-k="${i}">استرجع هاد النسخة</button></div>`).join(''):''}`};
+function vBackup(){const last=D.lastBackup?new Date(D.lastBackup).toLocaleString('fr-MA'):'ما درتيش حتى مرة';
+ return `<h3>نسخة احتياطية</h3><p class="note">الداتا كتبقى غير فهاد الهاتف. كل نسخة فيها جوج الأقسام فملف واحد. آخر نسخة: ${last}</p><button class="main" data-a="share">📤 تصدير النسخة (ملفات / iCloud / واتساب…)</button><button class="main sec" data-a="download">تنزيل ملف</button><p class="note">«تصدير» كيحل قائمة المشاركة ديال التيليفون: اختار «حفظ فملفات» (Save to Files) ولا iCloud Drive ولا واتساب. هادي نسخة زايدة على الإيميل.</p>${aStat()}<h3>استرجاع</h3><label>اختار ملف النسخة<input type="file" id="rf" accept=".json,application/json"></label><button class="main sec" data-a="restore">استرجع</button><p class="note">النسخة كتحتوي على جوج أقسام (الدجاج والديك الرومي) فملف واحد، والاسترجاع كيرجع جوج. النسخ القديمة (قسم واحد) كتسترجع عادي.</p>${profUI()}${lockUI()}<h3>مسح كل الداتا</h3><p class="note">كيمسح كلشي فقسم «${SP[1]}» غير. الأقسام الأخرى ما كتمسش.</p>${confirmDel==='all0'?del('all',0,`متأكد؟ غادي يتمسح كلشي فقسم «${SP[1]}»: الزبائن، الدورات، المبيعات، المصاريف... وما غاديش تقدر ترجعو غير إلا عندك نسخة احتياطية.`):`<button class="main sec" data-a="askdel" data-k="all" data-id="0" style="color:#b00020;border-color:#b00020">مسح كل الداتا</button>`}`}
+const LH='chicken.codehash',LU='chicken.unlocked';
+let LOCKED=(()=>{try{return !!localStorage.getItem(LH)}catch(_){return false}})();let HID=0;
+document.addEventListener('visibilitychange',()=>{if(document.hidden){HID=Date.now()}else if(HID&&Date.now()-HID>60000&&localStorage.getItem(LH)&&!LOCKED){LOCKED=true;HID=0;render()}});
+async function hashC(c){const d=new TextEncoder().encode('dajaj:'+c);if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',d);return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}let h=5381;for(const x of d)h=((h<<5)+h+x)>>>0;return 'x'+h}
+let TOKEN=localStorage.getItem('chicken.token')||'';let PROF=null;try{PROF=JSON.parse(localStorage.getItem('chicken.profile')||'null')}catch(_){}
+const profUI=()=>`<h3>معلوماتي</h3><p class="note">الإيميل هو لي غتمشي ليه النسخ الاحتياطية.</p>${I('pn','السمية',{def:PROF?PROF.name:''})}${I('pe','الإيميل',{def:PROF?PROF.email:'',type:'email'})}<button class="main sec" data-a="saveprof">سجل</button>`;
+const lockUI=()=>{const h=localStorage.getItem(LH);return `<h3>🔒 قفل التطبيق بـPIN</h3>`+(h?`<p class="note">التطبيق مقفول بـPIN. كيطلبو منك كل ما تحل التطبيق، وكيتقفل بوحدو من بعد دقيقة فاش تخرج منو.</p><button class="main sec" data-a="lockn">قفل دابا</button><label>الكود الحالي<input type="password" inputmode="numeric" id="oc" data-f value="${esc(val('oc'))}"></label><label>كود جديد (4 حروف ولا أرقام على الأقل)<input type="password" inputmode="numeric" id="nc" data-f value="${esc(val('nc'))}"></label><label>عاود الكود الجديد<input type="password" inputmode="numeric" id="nc2" data-f value="${esc(val('nc2'))}"></label><button class="main" data-a="chgcode">بدل الكود</button><button class="main sec" data-a="offcode">حيد القفل (خاصك الكود الحالي)</button>`:`<p class="note">دير PIN (4 أرقام ولا أكثر) باش التطبيق يطلبو منك كل ما تحلو. ما تنساش الـPIN: ما كاينش استرجاع، ودير نسخة احتياطية قبل. إلا نسيتو خاص تمسح بيانات الموقع وترجع الداتا من النسخة.</p><label>كود جديد (4 حروف ولا أرقام على الأقل)<input type="password" inputmode="numeric" id="nc" data-f value="${esc(val('nc'))}"></label><label>عاود الكود<input type="password" inputmode="numeric" id="nc2" data-f value="${esc(val('nc2'))}"></label><button class="main" data-a="setcode">فعل القفل</button>`)};
+function render(){setTimeout(()=>autoBackup(false),300);
+ if(!PROF||!TOKEN){document.getElementById('hd').innerHTML='<img src="icon.svg" alt="" style="width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-inline-end:8px"><span dir="ltr">Ahcoc manager</span>';$('#nav').innerHTML='';$('#app').innerHTML=`<div class="lock"><div style="text-align:center"><img src="icon-512.png" alt="" style="width:96px;height:96px;border-radius:22px"><h2 dir="ltr" style="margin:8px 0">Ahcoc manager</h2></div><h3>مرحبا! عرفنا بيك</h3><p class="note">كتكتب هاد المعلومات غير فالمرة الأولى فهاد التيليفون، من بعد التطبيق كيحل عادي. الإيميل هو لي غتمشي ليه النسخة الاحتياطية. الكود كيعطيهولك المسؤول من تطبيق Authenticator ديالو، وكيتبدل كل 30 ثانية.</p>${I('pn','السمية',{def:PROF?PROF.name:''})}${I('pe','الإيميل',{def:PROF?PROF.email:'',type:'email'})}${I('pc','الكود (6 أرقام)',{type:'tel'})}<button class="main" data-a="activate">كمل</button></div>`;return}
+ if(LOCKED){document.getElementById('hd').textContent='🔒 Ahcoc manager';$('#nav').innerHTML='';$('#app').innerHTML=`<div class="lock"><h2>كتب الـPIN باش تدخل</h2><label>PIN<input type="password" inputmode="numeric" id="lc" data-f autocomplete="off" value="${esc(val('lc'))}"></label><button class="main" data-a="unlock">دخل</button><p class="note">كيتطلب كل ما تحل التطبيق ولا ترجع ليه من بعد دقيقة. بعد 5 محاولات غالطين خاصك تتسنى.</p></div>`;return}
+ if(!SP){document.getElementById('hd').innerHTML='<img src="icon.svg" alt="" style="width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-inline-end:8px"><span dir="ltr">Ahcoc manager</span>';$('#nav').innerHTML='';$('#app').innerHTML='<h2>مرحبا '+esc(PROF.name)+'، شنو بغيتي تفتح؟</h2><p class="note">كل قسم عندو الداتا ديالو بوحدها.</p>'+SPACES.map(x=>`<button class="main" data-a="space" data-k="${x[0]}" style="font-size:22px;min-height:80px">${x[2]} ${x[1]}</button>`).join('');return}
+ calcAlloc();document.getElementById('hd').innerHTML=`<img src="icon.svg" alt="" style="width:30px;height:30px;border-radius:8px;vertical-align:middle;margin-inline-end:8px"><span dir="ltr">Ahcoc manager</span> ${SP[2]} <button class="lnk" data-a="chspace" style="color:#fff;float:left">تبدل القسم</button>`;
+ $('#nav').innerHTML=TABS.map(([k,l,ic])=>`<button data-a="tab" data-k="${k}" class="${sec===k?'on':''}"><span class="ic">${ic}</span>${l}</button>`).join('');
+ let h='';const LB=Math.max(D.lastBackup||0,aGet().sent||0,aGet().manual||0);const days=LB?Math.floor((Date.now()-LB)/864e5):null;
+ if(D.sales.length+D.cexp.length+D.rexp.length>0&&(days===null||days>=1)&&sec!=='bk')h+=`<div class="warn">ما درتيش نسخة احتياطية ${days===null?'حتى مرة':'من '+days+' يوم'}. سير لقسم «نسخة احتياطية».</div>`;
+ h+=({home:vHome,cyc:vCycles,res:vResale,cli:vClients,wrk:vWorkers,sup:vSuppliers,xex:vXexp,bk:vBackup})[sec]();
+ const y=window.scrollY;$('#app').innerHTML=h;window.scrollTo(0,y);}
+const backupObj=()=>({app:'chicken',v:4,space:SP[0],at:new Date().toISOString(),data:{clients:D.clients,workers:D.workers,cycles:D.cycles,cexp:D.cexp,sales:D.sales,pays:D.pays,rexp:D.rexp,buys:D.buys,suppliers:D.suppliers,stypes:D.stypes,stseed:D.stseed,spays:D.spays,xexp:D.xexp,wpays:D.wpays}});
+const pickD=d=>{const o={};['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','stseed','spays','xexp','wpays'].forEach(k=>{o[k]=d[k]});return o};
+const allObj=()=>{const spaces={};SPACES.forEach(sp=>{let d=emptyD();try{const r=localStorage.getItem(sp[3]);if(r)d=Object.assign(d,JSON.parse(r))}catch(_){}if(SP&&sp[0]===SP[0])d=D;spaces[sp[0]]=pickD(d)});return {app:'chicken',v:5,at:new Date().toISOString(),spaces}};
+const backupFile=()=>new File([JSON.stringify(allObj())],`backup-${today()}.json`,{type:'application/json'});
+
+const BK_URL='https://script.google.com/macros/s/AKfycbyZBZsdlSHM3Mc8ijqabzZ6a6vC8NLjV0FtdttEpj-mSXcAbZpEXp9daR4VnkitwyXx/exec',DAY=864e5;
+const aKey=()=>'chicken.auto',sKey=()=>'chicken.snap';
+const aGet=()=>{try{return JSON.parse(localStorage.getItem(aKey())||'{}')}catch(_){return{}}};
+const aSet=o=>{try{localStorage.setItem(aKey(),JSON.stringify(Object.assign(aGet(),o)))}catch(_){}};
+const snaps=()=>{try{return JSON.parse(localStorage.getItem(sKey())||'[]')}catch(_){return[]}};
+function snapNow(){const o=allObj();let l=snaps().filter(x=>new Date(x.at).toDateString()!==new Date().toDateString());l.push({at:Date.now(),obj:o});l=l.slice(-7);
+ while(l.length){try{localStorage.setItem(sKey(),JSON.stringify(l));return true}catch(_){l.shift()}}return false}
+const hasData=()=>Object.values(allObj().spaces).some(d=>['sales','cexp','rexp','cycles','buys','pays'].some(k=>(d[k]||[]).length>0));
+let autoBusy=false;
+async function sendMail(){const r=await fetch(BK_URL,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'backup',token:TOKEN,email:PROF.email,name:PROF.name,backup:allObj()})});const j=await r.json();if(!j.ok){if(j.error==='token'){TOKEN='';localStorage.removeItem('chicken.token');setTimeout(render,0)}throw new Error(j.error||'err')}return true}
+async function autoBackup(force){if(autoBusy||!SP||!PROF||!PROF.email)return;const st=aGet(),now=Date.now();
+ if(!force){if(!hasData())return;if(now-(st.snap||0)<DAY&&now-(st.sent||0)<DAY)return;if(now-(st.sent||0)>=DAY&&now-(st.tried||0)<36e5&&st.fail&&now-(st.snap||0)<DAY)return}
+ autoBusy=true;const sp=SP[0];
+ try{if(force||now-(st.snap||0)>=DAY){if(snapNow())aSet({snap:now})}
+  if(force||now-(st.sent||0)>=DAY){aSet({tried:now});try{await sendMail();aSet({sent:Date.now(),fail:''});D.lastBackup=Date.now();save();if(force)flash('تصيفطات النسخة للإيميل')}catch(e){aSet({fail:String(e.message||e)});if(force)flash('ما تصيفطاتش النسخة: '+(e.message==='quota'?'وصلتي الحد د اليوم':'تأكد من الأنترنيت'))}}}
+ finally{autoBusy=false}
+ if(SP&&SP[0]===sp)render()}
+function restoreObj(j){let items=[];if(j&&j.spaces&&typeof j.spaces==='object'){Object.keys(j.spaces).forEach(id=>{if(SPACES.find(x=>x[0]===id))items.push([id,j.spaces[id]])})}else if(j&&j.data){items=[[j.space||'dajaj',j.data]]}
+ if(!items.length||!items.every(([id,d])=>SPACES.find(x=>x[0]===id)&&d&&['clients','sales','pays'].every(x=>Array.isArray(d[x]))))throw 0;
+ const nm=items.map(([id])=>SPACES.find(x=>x[0]===id)[1]).join(' و ');
+ if(!confirm('هادشي غادي يعوض الداتا ديال: '+nm+' بالنسخة. متأكد؟'))return;
+ const cur=SP[0];items.forEach(([id,d])=>{const sp=SPACES.find(x=>x[0]===id);localStorage.setItem(sp[3],JSON.stringify(Object.assign(emptyD(),{lastBackup:0},d)))});
+ loadSpace(cur);if(!D.suppliers.length)D.buys.forEach(b=>{if(!b.sid){let x=D.suppliers.find(y=>y.name===b.supplier);if(!x){x={id:nid(D.suppliers),name:b.supplier};D.suppliers.push(x)}b.sid=x.id}});save();sec='bk';render();flash('تسترجعات المعلومات: '+nm)}
+const markBackup=()=>{D.lastBackup=Date.now();aSet({manual:Date.now()});save();render()};
+const clr=(...ids)=>ids.forEach(i=>delete F[i]);
+function upTot(){document.querySelectorAll('[data-a1]').forEach(e=>e.textContent=money(num(val(e.dataset.a1))*num(val(e.dataset.a2))))}
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset&&t.dataset.f!==undefined){F[t.id]=t.value;upTot()}});
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset&&t.dataset.rr!==undefined){F[t.id]=t.value;
+ if(t.id==='ew'||t.id==='rw'){const w=wk(+t.value);if(w&&w.rate>0){F[t.id==='ew'?'er':'rr']=String(w.rate)}}
+ if(t.id==='ec'){clr('eq','ep','ew','ed','er','ea')}
+ if(t.id==='pm'){}
+ if(t.id==='rc'){clr('ra','rw','rd','rr')}
+ render()}});
+function addSale(cycleId){const c=+val('sc'),kg=num(val('sk')),p=num(val('sp'));if(!c||kg<=0||p<=0){flash('اختار الزبون وكتب الكيلو والثمن');return}
+ const paid=Math.min(num(val('sx')),kg*p);D.sales.push({id:nid(D.sales),client:c,date:val('sd',today()),kg,price:p,paid,cycle:cycleId});const keep=F.sc;clr('sk','sp','sx');F.sc=keep;save();render();flash('تسجل البيع: '+money(kg*p))}
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,k=b.dataset.k,id=+b.dataset.id;
+ if(a==='activate'){const n=val('pn','').trim(),m=val('pe','').trim(),c=val('pc','').replace(/\s/g,'');if(!n){flash('كتب السمية');return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){flash('الإيميل ماشي صحيح');return}if(!/^\d{6}$/.test(c)){flash('الكود خاصو يكون 6 أرقام');return}
+  flash('كنتأكد من الكود...');try{const r=await fetch(BK_URL,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action:'verify',code:c})});const j=await r.json();
+  if(j.ok&&j.token){TOKEN=j.token;localStorage.setItem('chicken.token',TOKEN);PROF={name:n,email:m};localStorage.setItem('chicken.profile',JSON.stringify(PROF));render();window.scrollTo(0,0);flash('تفعل التطبيق');return}
+  flash(j.error==='locked'?'بزاف د المحاولات، عاود من بعد ساعة':'الكود غالط ولا سالا، جرب كود جديد')}catch(_){flash('تأكد من الأنترنيت وعاود')}return}
+ if(a==='saveprof'){const n=val('pn',PROF?PROF.name:'').trim(),m=val('pe',PROF?PROF.email:'').trim();if(!n){flash('كتب السمية');return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){flash('الإيميل ماشي صحيح');return}PROF={name:n,email:m};localStorage.setItem('chicken.profile',JSON.stringify(PROF));clr('pn','pe');render();window.scrollTo(0,0);flash('تسجل');return}
+ if(a==='unlock'){const w=+localStorage.getItem('chicken.pinlock')||0;if(Date.now()<w){flash('تسنى '+Math.ceil((w-Date.now())/1000)+' ثانية');return}const h=await hashC(val('lc').trim());if(h===localStorage.getItem(LH)){localStorage.removeItem('chicken.pinfail');localStorage.removeItem('chicken.pinlock');LOCKED=false;clr('lc');render();window.scrollTo(0,0)}else{const n=(+localStorage.getItem('chicken.pinfail')||0)+1;localStorage.setItem('chicken.pinfail',n);if(n>=5)localStorage.setItem('chicken.pinlock',Date.now()+Math.min(3600000,30000*Math.pow(2,n-5)));flash('الـPIN غالط');clr('lc');render()}return}
+ if(a==='setcode'||a==='chgcode'||a==='offcode'){const cur=localStorage.getItem(LH);
+  if(a!=='setcode'&&await hashC(val('oc').trim())!==cur){flash('الكود الحالي غالط');return}
+  if(a==='offcode'){localStorage.removeItem(LH);clr('oc','nc','nc2');render();flash('تحيد القفل');return}
+  const n=val('nc').trim();if(n.length<4){flash('الكود خاصو 4 حروف ولا أرقام على الأقل');return}if(n!==val('nc2').trim()){flash('الكودين ماشي بحال بحال');return}
+  const h=await hashC(n);localStorage.setItem(LH,h);clr('oc','nc','nc2');render();flash(a==='setcode'?'تفعل القفل':'تبدل الكود');return}
+ if(a==='lockn'){LOCKED=true;render();return}
+ if(a==='tab'){pedX=null;edX=null;payX=null;sec=k;openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
+ if(a==='back'){openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
+ if(a==='csub'){csub=k;confirmDel=null;render();return}
+ if(a==='tg'){if(OPENR.has(k))OPENR.delete(k);else OPENR.add(k);render();return}
+ if(a==='rsub'){rsub=k;confirmDel=null;render();return}
+ if(a==='opencyc'){openCycle=id;csub='sum';render();window.scrollTo(0,0);return}
+ if(a==='opencli'){openClient=id;render();window.scrollTo(0,0);return}
+ if(a==='payx'){payX={k,id};delete F.px;render();return}
+ if(a==='payno'){payX=null;render();return}
+ if(a==='dopay'||a==='payfull'){const x=D[k].find(y=>y.id===id);if(x){const tot=k==='buys'?x.kg*x.price:x.amount,cur=k==='buys'?bP0(x):P0(x);const add=Math.min(a==='payfull'?tot-cur:num(val('px')),tot-cur);if(add<=0){flash('كتب المبلغ');return}if(!Array.isArray(x.pays))x.pays=[];x.pays.push({id:nid(x.pays),date:val('pxd',today()),amount:add});payX=null;delete F.px;delete F.pxd;save();render();flash('تسجل الخلاص')}return}
+ if(a==='pedit'){const x=D[k].find(y=>y.id===id),p=x&&x.pays.find(y=>y.id===+b.dataset.pid);if(p){pedX={k,id,pid:p.id};F.pe_d=p.date;F.pe_a=String(p.amount);payX=null;confirmDel=null;edX=null;render()}return}
+ if(a==='peno'){pedX=null;render();return}
+ if(a==='pesave'){const x=D[pedX.k].find(y=>y.id===pedX.id),p=x&&x.pays.find(y=>y.id===pedX.pid),m=num(val('pe_a'));if(!p)return;if(m<=0){flash('كتب المبلغ');return}p.date=val('pe_d')||p.date;p.amount=m;pedX=null;save();render();flash('تعدل');return}
+ if(a==='paskdel'){confirmDel=`P${k}${id}_${b.dataset.pid}`;render();return}
+ if(a==='pdel'){const x=D[k].find(y=>y.id===id);if(x){x.pays=x.pays.filter(y=>y.id!==+b.dataset.pid)}confirmDel=null;save();render();flash('تمسح');return}
+ if(a==='addclpay'){const m=num(val('pa'));if(m<=0){flash('كتب المبلغ');return}D.pays.push({id:nid(D.pays),client:id,date:val('pd',today()),amount:m});clr('pa');save();render();flash('تسجل الخلاص');return}
+ if(a==='addspay'){const m=num(val('sa'));if(m<=0){flash('كتب المبلغ');return}D.spays.push({id:nid(D.spays),sid:id,date:val('sd2',today()),amount:m});clr('sa');save();render();flash('تسجل الخلاص');return}
+ if(a==='pdfshare'||a==='pdfdl'){try{await doPdf(k,id,a==='pdfshare')}catch(err){flash('ما قدرناش نصاوبو PDF')}return}
+ if(a==='opensup'){openSup=id;const q=D.suppliers.find(y=>y.id===id)||{};F.sdt=q.kd||'g';F.sdn=q.name||'';render();window.scrollTo(0,0);return}
+ if(a==='openwrk'){openWorker=id;render();window.scrollTo(0,0);return}
+ if(a==='setday'){F.rdy=k;render();return}
+ if(a==='space'){loadSpace(k);render();window.scrollTo(0,0);return}
+ if(a==='chspace'){SP=null;render();return}
+ if(a==='edit'){edStart(k,id);payX=null;confirmDel=null;render();return}
+ if(a==='noed'){edX=null;render();return}
+ if(a==='saveed'){edSave();return}
+ if(a==='askdel'){confirmDel=k+id;render();return}
+ if(a==='nodel'){confirmDel=null;render();return}
+ if(a==='del'){
+  if(k==='all'){D=emptyD();confirmDel=null;openCycle=openClient=openWorker=openSup=null;sec='bk';save();render();flash('تمسحات كل الداتا');return}
+  if(k==='cycles'){D.cexp=D.cexp.filter(x=>x.cycle!==id);D.sales=D.sales.filter(x=>x.cycle!==id);D.pays=D.pays.filter(x=>x.cycle!==id);openCycle=null}
+  if(k==='clients'){D.sales=D.sales.filter(x=>x.client!==id);D.pays=D.pays.filter(x=>x.client!==id);openClient=null}
+  if(k==='workers'){openWorker=null;D.wpays=D.wpays.filter(x=>x.wid!==id)}
+  if(k==='stypes'){D.suppliers.forEach(x=>{if(x.tid===id)delete x.tid})}
+  if(k==='suppliers'){D.cexp.forEach(e=>{if(e.sid===id)delete e.sid});D.buys=D.buys.filter(x=>x.sid!==id);D.spays=D.spays.filter(x=>x.sid!==id);openSup=null}
+  D[k]=D[k].filter(x=>x.id!==id);confirmDel=null;save();render();flash('تمسح');return}
+ if(a==='addwpay'){const m=num(val('wa'));if(m<=0){flash('كتب المبلغ');return}D.wpays.push({id:nid(D.wpays),wid:id,date:val('wd2',today()),amount:m});clr('wa');save();render();flash('تسجل الخلاص');return}
+ if(a==='addxexp'){const n=val('xn').trim(),m=num(val('xa'));if(!n||m<=0){flash('كتب السمية والمبلغ');return}D.xexp.push({id:nid(D.xexp),date:val('xdt',today()),cat:n,amount:m,pays:mkPays(m,val('xdt',today())),note:val('xnote').trim()});clr('xn','xa','xnote','pp');save();render();flash('تسجل المصروف');return}
+ if(a==='addcli'){const n=val('cln').trim();if(!n){flash('كتب السمية');return}D.clients.push({id:nid(D.clients),name:n});clr('cln');save();render();flash('تزاد الزبون');return}
+ if(a==='settm'){F.tm=k;render();return}
+ if(a==='sethm'){F.hm=k;render();window.scrollTo(0,0);return}
+ if(a==='setsf'){F.sf=k;render();return}
+ if(a==='addstype'){const n=val('stn').trim();if(!n){flash('كتب سمية النوع');return}if(D.stypes.some(t=>t.name===n)){flash('هاد النوع كاين');return}D.stypes.push({id:nid(D.stypes),name:n});clr('stn');save();render();flash('تزاد النوع');return}
+ if(a==='supsave'){const x=D.suppliers.find(y=>y.id===id),n=val('sdn',x.name).trim();if(!n){flash('كتب السمية');return}x.name=n;x.kd=val('sdt',x.kd||'g')==='p'?'p':'g';delete F.sdt;delete F.sdn;save();render();flash('تسجل');return}
+ if(a==='addsup'){const n=val('sn').trim();if(!n){flash('كتب السمية');return}const o={id:nid(D.suppliers),name:n};o.kd=val('snt','g')==='p'?'p':'g';D.suppliers.push(o);clr('sn');save();render();flash('تزاد المورد');return}
+ if(a==='addwrk'){const n=val('wn').trim();if(!n){flash('كتب السمية');return}D.workers.push({id:nid(D.workers),name:n,role:val('wr','koori'),rate:num(val('wrt'))});clr('wn','wr','wrt');save();render();flash('تزاد العامل');return}
+ if(a==='addcyc'){const n=val('cn').trim();if(!n){flash('كتب سمية الدورة');return}D.cycles.push({id:nid(D.cycles),name:n,start:val('cs',today()),end:''});clr('cn','cs');save();render();flash('تزادت الدورة');return}
+ if(a==='endcyc'){cyc(openCycle).end=today();save();render();return}
+ if(a==='reopen'){cyc(openCycle).end='';save();render();return}
+ if(a==='addsale'){addSale(k==='r'?null:+k);return}
+ if(a==='addpay'){const c=+val('pc'),m=num(val('pa'));if(!c||m<=0){flash('اختار الزبون وكتب المبلغ');return}D.pays.push({id:nid(D.pays),client:c,date:val('pd',today()),amount:m,cycle:k==='r'?null:+k});const keep=F.pc;clr('pa');F.pc=keep;save();render();flash('تسجل الخلاص');return}
+ if(a==='addcexp'){const ck=catOf(val('ec','chick'));let o={id:nid(D.cexp),cycle:openCycle,date:val('edt',today()),cat:ck[0],note:val('en').trim()};
+  if(ck[2]==='qp'){const q=num(val('eq')),p=num(val('ep'));if(q<=0||p<=0){flash('كتب العدد والثمن');return}Object.assign(o,{qty:q,price:p,amount:q*p})}
+  else if(ck[2]==='wd'){const w=wk(+val('ew')),d=num(val('ed')),r=num(val('er'));if(!w||d<=0||r<=0){flash('اختار العامل وكتب الأيام والأجر');return}Object.assign(o,{wid:w.id,wname:w.name,qty:d,price:r,amount:d*r})}
+  else{const m=num(val('ea'));if(m<=0){flash('كتب المبلغ');return}o.amount=m}
+  if((ck[0]==='chick'||ck[0]==='feed')&&+val('esup'))o.sid=+val('esup');
+  o.pays=mkPays(o.amount,o.date);D.cexp.push(o);clr('eq','ep','ew','ed','er','ea','en','pp');save();render();flash('تسجل المصروف');return}
+ if(a==='addrexp'){const c=val('rc','وقود');let o={id:nid(D.rexp),date:val('rdt',today()),cat:c,note:val('rn').trim()};
+  if(c==='سائق'){const w=wk(+val('rw')),d=num(val('rd',1)),r=num(val('rr'));if(!w||d<=0||r<=0){flash('اختار السائق وكتب الأيام والأجر');return}Object.assign(o,{wid:w.id,wname:w.name,qty:d,amount:d*r})}
+  else{const m=num(val('ra'));if(m<=0){flash('كتب المبلغ');return}o.amount=m}
+  o.pays=mkPays(o.amount,o.date);D.rexp.push(o);clr('ra','rw','rd','rr','rn','pp');save();render();flash('تسجل المصروف');return}
+ if(a==='addbuy'){const x=D.suppliers.find(y=>y.id===+val('bs')),kg=num(val('bk')),p=num(val('bp'));if(!x||kg<=0||p<=0){flash('اختار المورد وكتب الكيلو والثمن');return}D.buys.push({id:nid(D.buys),date:val('bd',today()),sid:x.id,supplier:x.name,kg,price:p,pays:mkPays(kg*p,val('bd',today()))});clr('bk','bp','pp');save();render();flash('تسجل الشراء: '+money(kg*p));return}
+ if(a==='autonow'){await autoBackup(true);return}
+ if(a==='rsnap'){const x=snaps()[+k];if(x)restoreObj(x.obj);return}
+ if(a==='share'){const f=backupFile();if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'نسخة احتياطية'});markBackup();flash('تسجلات النسخة')}catch(_){}}else{flash('المشاركة ما كاينتش فهاد المتصفح، استعمل التنزيل')}return}
+ if(a==='download'){const f=backupFile(),u=URL.createObjectURL(f),l=document.createElement('a');l.href=u;l.download=f.name;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),5000);markBackup();return}
+ if(a==='restore'){const f=document.getElementById('rf').files[0];if(!f){flash('اختار الملف الأول');return}
+  try{restoreObj(JSON.parse(await f.text()))}catch(_){flash('الملف ماشي صحيح')}return}
+
+});
+
+function buildStatement(who,id,from,to){
+ let name,cols,rows=[],title;const cmp=(a,b)=>a.d===b.d?a.i-b.i:a.d.localeCompare(b.d);
+ let ev=[];
+ if(who==='c'){const c=cl(id);name=c?c.name:'؟';title='كشف حساب الزبون';const s=clStats(id);
+  s.ss.forEach(x=>ev.push({d:x.date,i:x.id,t:x.cycle?'بيع - دورة '+((cyc(x.cycle)||{}).name||''):'بيع - إعادة البيع',kg:x.kg,pr:x.price,tot:saleTot(x),paid:x.paid||0}));
+  s.pp.forEach(p=>ev.push({d:p.date,i:1e6+p.id,t:'خلاص',tot:0,paid:p.amount}));
+  cols=['التاريخ','البيان','الكيلو','الثمن/كغ','المجموع','خلص','الباقي'];}
+ else{const x=D.suppliers.find(y=>y.id===id);name=x?x.name:'؟';title='كشف حساب المورد';const s=supStats(id);
+  s.bb.forEach(b=>ev.push({d:b.date,i:b.id,t:'شراء',kg:b.kg,pr:b.price,tot:b.kg*b.price,paid:bP0(b)}));
+  s.ce.forEach(e=>ev.push({d:e.date,i:5e5+e.id,t:catOf(e.cat)[1]+' - دورة '+((cyc(e.cycle)||{}).name||''),kg:e.qty,pr:e.price,tot:e.amount,paid:P0(e)}));
+  s.pp.forEach(p=>ev.push({d:p.date,i:1e6+p.id,t:'عطيتو',tot:0,paid:p.amount}));
+  cols=['التاريخ','البيان','الكيلو','الثمن/كغ','المجموع','عطيت','الباقي'];}
+ ev.sort(cmp);let bal=0,tot=0,paid=0,kg=0;const out=[];
+ ev.forEach(e=>{if(from&&e.d<from){bal+=e.tot-e.paid;return}if(to&&e.d>to)return;
+  if(from&&!out.length&&!out.opening){out.opening=bal;}
+ });
+ let opening=0;ev.forEach(e=>{if(from&&e.d<from)opening+=e.tot-e.paid});bal=opening;
+ if(from&&opening!==0)rows.push(['',from?'رصيد سابق':'','','','','',String(Math.round(opening*100)/100)]);
+ ev.forEach(e=>{if(from&&e.d<from)return;if(to&&e.d>to)return;bal+=e.tot-e.paid;tot+=e.tot;paid+=e.paid;kg+=e.kg||0;
+  rows.push([e.d,e.t,e.kg!=null?String(e.kg):'',e.pr!=null?String(e.pr):'',e.tot?String(Math.round(e.tot*100)/100):'',e.paid?String(Math.round(e.paid*100)/100):'',String(Math.round(bal*100)/100)])});
+ const LR=x=>'\u2066'+x+'\u2069';const period=(from||to)?`الفترة: من ${LR(from||'البداية')} إلى ${LR(to||today())}`:'كل الحركات';
+ return {name,title,cols,rows,period,sumLines:[['مجموع الشراء'+(kg?` (${kg} كيلو)`:''),tot],[who==='c'?'مجموع ما خلص':'مجموع ما عطيت',paid],[who==='c'?'الباقي عليه':'الباقي خاصني نعطيه',bal]],opening};
+}
+async function renderPdf(st){
+ const W=1240,H=1754,M=60,RH=54,pages=[];let cv,cx,y;
+ const W_=[170,300,110,130,150,130,150];const sc=(W-2*M)/W_.reduce((a,b)=>a+b,0);const cw=W_.map(w=>w*sc);
+ const newPage=()=>{cv=document.createElement('canvas');cv.width=W;cv.height=H;cx=cv.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,W,H);cx.fillStyle='#251f21';
+  cx.direction='rtl';cx.textAlign='right';cx.font='bold 52px sans-serif';cx.fillText(st.title+': '+st.name,W-M,100);
+  cx.font='30px sans-serif';cx.fillStyle='#585254';cx.fillText(st.period,W-M,150);cx.direction='ltr';cx.textAlign='right';cx.fillText(today(),M+120,150);
+  y=200;header();pages.push(cv)};
+ const cell=(txt,i,yy,bold)=>{let x=W-M;for(let k=0;k<i;k++)x-=cw[k];const w=cw[i];txt=String(txt);let fs=bold?30:28;cx.font=(bold?'bold ':'')+fs+'px sans-serif';while(cx.measureText(txt).width>w-14&&fs>14){fs-=2;cx.font=(bold?'bold ':'')+fs+'px sans-serif'}
+  const arabic=/[\u0600-\u06FF]/.test(txt);cx.direction=arabic?'rtl':'ltr';cx.textAlign=arabic?'right':'center';cx.fillText(txt,arabic?x-8:x-w/2,yy)};
+ const header=()=>{cx.fillStyle='#eae9ea';cx.fillRect(M,y,W-2*M,RH);cx.fillStyle='#251f21';st.cols.forEach((c,i)=>cell(c,i,y+37,true));y+=RH};
+ newPage();
+ st.rows.forEach((r,ri)=>{if(y+RH>H-M-40){newPage()}cx.fillStyle='#251f21';r.forEach((c,i)=>cell(c,i,y+37,false));cx.strokeStyle='#eae9ea';cx.beginPath();cx.moveTo(M,y+RH);cx.lineTo(W-M,y+RH);cx.stroke();y+=RH});
+ if(!st.rows.length){cx.fillStyle='#585254';cx.direction='rtl';cx.textAlign='right';cx.font='30px sans-serif';cx.fillText('ما كاين حتى حركة فهاد الفترة',W-M,y+45);y+=RH}
+ if(y+260>H-M)newPage();y+=30;
+ st.sumLines.forEach((l,i)=>{const last=i===st.sumLines.length-1;cx.fillStyle=last?'#251f21':'#585254';cx.font=(last?'bold 40px':'34px')+' sans-serif';cx.direction='rtl';cx.textAlign='right';cx.fillText(l[0],W-M,y+50);cx.direction='ltr';cx.textAlign='left';cx.fillText(Math.round(l[1]*100)/100+' DH',M,y+50);y+=64});
+ const jpgs=[];for(const p of pages){const b=await new Promise(r=>p.toBlob(r,'image/jpeg',0.92));jpgs.push(new Uint8Array(await b.arrayBuffer()))}
+ return makePdf(jpgs,W,H);
+}
+function makePdf(jpgs,w,h){
+ const enc=new TextEncoder(),chunks=[],offs=[];let len=0;const push=x=>{const u=typeof x==='string'?enc.encode(x):x;chunks.push(u);len+=u.length};
+ const n=jpgs.length;const obj=(i,fn)=>{offs[i]=len;push(`${i} 0 obj\n`);fn();push('\nendobj\n')};
+ push('%PDF-1.4\n');
+ obj(1,()=>push('<< /Type /Catalog /Pages 2 0 R >>'));
+ obj(2,()=>push(`<< /Type /Pages /Count ${n} /Kids [${jpgs.map((_,i)=>`${3+i*3} 0 R`).join(' ')}] >>`));
+ jpgs.forEach((j,i)=>{const p=3+i*3;
+  obj(p,()=>push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << /Im0 ${p+1} 0 R >> >> /Contents ${p+2} 0 R >>`));
+  obj(p+1,()=>{push(`<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${j.length} >>\nstream\n`);push(j);push('\nendstream')});
+  const c='q 595 0 0 842 0 0 cm /Im0 Do Q';obj(p+2,()=>push(`<< /Length ${c.length} >>\nstream\n${c}\nendstream`))});
+ const total=2+n*3,xr=len;push(`xref\n0 ${total+1}\n0000000000 65535 f \n`);for(let i=1;i<=total;i++)push(String(offs[i]).padStart(10,'0')+' 00000 n \n');
+ push(`trailer\n<< /Size ${total+1} /Root 1 0 R >>\nstartxref\n${xr}\n%%EOF`);
+ return new Blob(chunks,{type:'application/pdf'});
+}
+async function doPdf(who,id,share){
+ const st=buildStatement(who,id,val('pf'),val('pt'));const blob=await renderPdf(st);
+ const fn=`statement-${who}${id}-${today()}.pdf`;const f=new File([blob],fn,{type:'application/pdf'});
+ if(share&&navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:st.title+' '+st.name});return}catch(e){if(e&&e.name==='AbortError')return}}
+ const u=URL.createObjectURL(blob),l=document.createElement('a');l.href=u;l.download=fn;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),8000);flash(share?'المشاركة ما كاينتش، تنزل الملف':'تنزل PDF');
+}
+window.__pdf=async(who,id,from,to)=>{const st=buildStatement(who,id,from,to);const b=await renderPdf(st);const u=new Uint8Array(await b.arrayBuffer());let s='';for(let i=0;i<u.length;i+=8192)s+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(s)};
+
+if(location.pathname.indexOf('/dajaj-app')===0){const m=document.getElementById('mv');m.style.display='block';m.innerHTML='🔗 العنوان الجديد ديال التطبيق: <b dir="ltr">abderrahimhanounou.github.io/ahcoc</b>. باش تنقل الداتا: فتبويب «نسخة احتياطية» ضغط «تصدير النسخة» وسجلها، من بعد حل العنوان الجديد وأدخل الكود، وفتبويب «نسخة احتياطية» ضغط «استرجع».'}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
+render();
+</script></body></html>
