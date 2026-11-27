@@ -183,7 +183,7 @@ function vCycles(){
   if(csub==='sum'){h+=cycSumHtml([c.id]);
    h+=`<h3>إنهاء الدورة</h3>`+(c.end?`<button class="main sec" data-a="reopen">رجع الدورة جارية</button>`:`<button class="main sec" data-a="endcyc">سالي هاد الدورة (اليوم)</button>`)+'<p></p>'+del('cycles',c.id,`غادي تتمسح الدورة بجميع المصاريف (${st.ex.length}) والمبيعات (${st.ss.length}) ديالها. متأكد؟`);}
   if(csub==='exp'){const k=catOf(val('ec','chick'));
-   h+=`<h3>مصروف جديد</h3>`+S('ec','النوع',CATS.map(c=>[c[0],c[1]]),1);
+   h+=`<h3>مصروف جديد</h3>`+S('ec','النوع',CATS.filter(c=>c[0]!=='maint').map(c=>[c[0],c[1]]),1);
    if(k[2]==='qp')h+=N('eq',k[3])+N('ep',k[4])+TOT('etot','eq','ep');
    else if(k[2]==='wd'){h+=workerSel('ew',k[3],k[3]==='koori'?'العامل (كوري)':'السائق')+(D.workers.some(w=>w.role===k[3])?'':'<p class="note">زيد العامل من قسم «العمال».</p>')+N('ed','عدد أيام الخدمة فهاد الدورة')+N('er','الأجر لليوم (DH)')+TOT('etot','ed','er');}
    else h+=N('ea','المبلغ (DH)');
@@ -258,7 +258,7 @@ function vHome(){
  h+=`<h2>المجموع الكلي</h2><p class="note">دورات + إعادة البيع + المصاريف الخارجية (${money(xt)})</p>`+sumCards({inc:all.inc+r.inc,exp:all.exp+r.exp+xt,col:all.col+r.col,expP:all.expP+r.expP+xp,unc:all.unc+r.unc,kg:all.kg+r.kg});
  return h+`<h3>الفلوس</h3>${line('باقي عند الزبائن',money(clOwe))}${line('باقي خاصني نخلص (مصاريف)',money(exOwe))}${line('باقي خاصني نعطي للموردين',money(suOwe))}`}
 function vXexp(){const t=expTotals(D.xexp);
- let h=`<h3>مصروف خارجي جديد</h3><p class="note">مصاريف ماشي ديال الدورات ولا إعادة البيع (بحال صيانة السيارة). كتحسب غير فالمجموع الكلي فالملخص.</p>`+I('xn','السمية (كتب لي بغيتي)',{list:'xnames'})+`<datalist id="xnames">${[...new Set(D.xexp.map(e=>e.cat))].map(n=>`<option value="${esc(n)}">`).join('')}</datalist>`+N('xa','المبلغ (DH)')+paidSel()+DT('xdt')+I('xnote','ملاحظة')+`<button class="main" data-a="addxexp">سجل المصروف</button>`;
+ let h=`<h3>مصروف خارجي جديد</h3><p class="note">مصاريف ماشي ديال الدورات ولا إعادة البيع . كتحسب غير فالمجموع الكلي فالملخص.</p>`+I('xn','السمية (كتب لي بغيتي)',{list:'xnames'})+`<datalist id="xnames">${[...new Set(D.xexp.map(e=>e.cat))].map(n=>`<option value="${esc(n)}">`).join('')}</datalist>`+N('xa','المبلغ (DH)')+paidSel()+DT('xdt')+I('xnote','ملاحظة')+`<button class="main" data-a="addxexp">سجل المصروف</button>`;
  h+=`<h3>المصاريف الخارجية (${D.xexp.length})</h3>`+line('المجموع',money(t.t))+line('خلصت',money(t.p))+line('باقي',money(t.t-t.p),t.t-t.p>0.005?'bad':'good');
  return h+expGroups('xexp',D.xexp,e=>e.cat,esc,e=>`${e.date}${e.note?' · '+esc(e.note):''}`)}
 const aStat=()=>{const a=aGet(),f=t=>t?new Date(t).toLocaleString('fr-MA'):'حتى مرة';return `<h3>النسخة الأوطوماتيكية</h3><p class="note">كل نهار، فاش تحل التطبيق، كتمشي نسخة للإيميل: <b dir="ltr">${esc(PROF?PROF.email:'')}</b> وكتتحط نسخة أخرى فهاد الهاتف.</p><p class="note">آخر نسخة فالإيميل: ${f(a.sent)}${a.fail?' (آخر محاولة فشلات: '+esc(a.fail)+')':''}<br>آخر نسخة فالهاتف: ${f(a.snap)}</p><button class="main" data-a="autonow">صيفط نسخة للإيميل دابا</button>${snaps().length?'<h3>النسخ لي فالهاتف</h3>'+snaps().map((x,i)=>`<div class="row"><span>${new Date(x.at).toLocaleDateString('fr-MA')}</span><button class="main sec" data-a="rsnap" data-k="${i}">استرجع هاد النسخة</button></div>`).join(''):''}`};
