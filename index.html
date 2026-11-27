@@ -197,7 +197,7 @@ function vCycles(){
 function vResale(){
  let h=sub(rsub,[['sum','الملخص'],['exp','مصاريف'],['sale','مداخيل']],'rsub');
  if(rsub==='sum')h+=resSumHtml();
- if(rsub==='exp'){const pn=SP[0]==='roki'?'الديك الرومي':'الدجاج',isb=val('rc','__buy')==='__buy',driver=val('rc','__buy')==='سائق';h+=`<h3>مصروف جديد</h3>`+S('rc','النوع',[['__buy','شراء '+pn+' من مورد'],['وقود','وقود'],['سائق','سائق (باليوم)'],['صيانة السيارة','صيانة السيارة'],['أخرى','أخرى']],1);
+ if(rsub==='exp'){const pn=SP[0]==='roki'?'الديك الرومي':'الدجاج',isb=val('rc','__buy')==='__buy',driver=val('rc','__buy')==='سائق';h+=`<h3>مصروف جديد</h3>`+S('rc','النوع',[['__buy','شراء '+pn+' من مورد'],['وقود','وقود'],['سائق','سائق (باليوم)'],['أخرى','أخرى']],1);
   if(isb){h+=`${D.suppliers.length?'':'<p class="note">زيد المورد الأول من قسم «الموردين».</p>'}${S('bs','المورد',[['','اختار المورد'],...D.suppliers.filter(x=>x.kd==='p').map(x=>[x.id,supLab(x)])])}${DT('bd')}${N('bk','الكيلوات')}${N('bp','ثمن الشراء للكيلو (DH)')}${TOT('btot','bk','bp')}${paidSel()}<button class="main" data-a="addbuy">سجل الشراء</button><h3>المشتريات (شراء ${pn})</h3>`+(D.buys.length?[...D.buys].reverse().map(buyRow).join(''):'<p class="note">ما كاين حتى شراء.</p>')+'<h3>المصاريف الأخرى</h3>'+expGroups('rexp',D.rexp,e=>e.cat,esc,e=>`${e.date}${e.wname?' · '+esc(e.wname)+' · '+(e.qty||1)+' يوم':''}${e.note?' · '+esc(e.note):''}`)}
   else{
   if(driver)h+=workerSel('rw','driver','السائق')+N('rd','عدد الأيام',1)+N('rr','الأجر لليوم (DH)')+TOT('rtot','rd','rr');else h+=N('ra','المبلغ (DH)');
