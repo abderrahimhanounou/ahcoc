@@ -267,7 +267,7 @@ function vBackup(){const last=D.lastBackup?new Date(D.lastBackup).toLocaleString
 
 const API='https://ahcoc-api.ahcoc-api.workers.dev/api';
 let AS=null;try{AS=JSON.parse(localStorage.getItem('chicken.api')||'null')}catch(_){}
-let WAOK='',WAT=0,WAU='';const waHtml=()=>{const u=(F.au||'').trim().toLowerCase();return WAOK&&WAOK===u?'<a href="'+WAU+'" target="_blank" rel="noopener" class="main sec" style="display:block;text-align:center;margin-top:8px">تواصل مع المسؤول على واتساب</a>':'كتب سمية الحساب لتحت باش يبان رابط التواصل.'};
+let WAOK='',WAT=0,WAU='';const waHtml=()=>{const u=(F.au||'').trim().toLowerCase();return WAOK&&WAOK===u?'<a href="'+WAU+'" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:10px;padding:12px;border:2px solid #1f6b52;border-radius:12px;color:#1f6b52;font-weight:bold;text-decoration:none">تواصل مع المسؤول على واتساب</a>':'كتب سمية الحساب لتحت باش يبان رابط التواصل.'};
 let GM=localStorage.getItem('chicken.lastuser')?'pin':'code';let SYNC='',REV=null,ADM=null,NEWK=null,syncBusy=false,pushT=0;const skipUp={};
 const svK=id=>'chicken.sv.'+id;
 const svGet=id=>{try{return Object.assign({v:0,dirty:0,linked:0},JSON.parse(localStorage.getItem(svK(id))||'{}'))}catch(_){return{v:0,dirty:0,linked:0}}};
