@@ -247,12 +247,13 @@ const scopeSel=()=>S('pcs','فين تسجل الخلاص',[['r','إعادة ال
 const pdfBox=(who,id)=>`<h3>كشف حساب PDF</h3><p class="note">اختار الفترة (اختياري) وصيفطو.</p>${I('pf','من تاريخ',{type:'date'})}${I('pt','إلى تاريخ',{type:'date'})}<button class="main" data-a="pdfshare" data-k="${who}" data-id="${id}">إنشاء PDF ومشاركته</button><button class="main sec" data-a="pdfdl" data-k="${who}" data-id="${id}">تنزيل PDF</button>`;
 
 function fBox(kind){const src=val('fsrc',''),per=val('fper','');const cs=D.cycles||[];
- const so=[['','الكل (الدورات + إعادة البيع)'],['r','إعادة البيع فقط'],['c','الدورات']];
+ const so=[['','الكل (الدورات + إعادة البيع)'],['r','إعادة البيع'],['c','الدورات']];
  let ch='';if(src==='c')ch=cs.length?S('fcyc','اختار الدورة',[['','جميع الدورات']].concat(cs.map(c=>[String(c.id),c.name])),1):'<p class="note">ما كاين حتى دورة فهاد القسم ('+esc(SP?SP[1]:'')+').</p>';
- let vh='';if(per==='day')vh=I('fval','النهار',{type:'date',def:today()});else if(per==='month')vh=I('fval','الشهر',{type:'month',def:today().slice(0,7)});else if(per==='year')vh=I('fval','العام',{num:1,def:today().slice(0,4)});
- return `<h3>فلتر</h3><div class="card">${S('fsrc','المصدر',so,1)}${ch}${S('fper','الفترة',[['','كل الوقت'],['day','نهار محدد'],['month','شهر محدد'],['year','عام محدد']],1)}${vh.replace('data-f','data-f data-rr')}`}
-const fPer=()=>{const p=val('fper','');if(!p)return'';const v=String(val('fval',p==='day'?today():p==='month'?today().slice(0,7):today().slice(0,4))).trim();return v};
-const fOk=(d)=>{const v=fPer();return !v||String(d||'').startsWith(v)};
+ let vh='';if(per==='day')vh=I('fval','اليوم',{type:'date',def:today()});else if(per==='month')vh=I('fval','الشهر',{type:'month',def:today().slice(0,7)});else if(per==='year')vh=I('fval','السنة',{num:1,def:today().slice(0,4)});else if(per==='range')vh=I('fa','من',{type:'date',def:today().slice(0,8)+'01'})+I('fb','إلى',{type:'date',def:today()});
+ const pp=src==='c'?'':S('fper','الفترة',[['','الإجمالي'],['range','تحديد الوقت (من - إلى)'],['day','اليوم'],['month','الشهر'],['year','السنة']],1)+vh.replace(/data-f/g,'data-f data-rr');
+ return `<h3>فلتر</h3><div class="card">${S('fsrc','المصدر',so,1)}${ch}${pp}`}
+const fPer=()=>{if(val('fsrc','')==='c')return'';const p=val('fper','');if(!p||p==='range')return'';return String(val('fval',p==='day'?today():p==='month'?today().slice(0,7):today().slice(0,4))).trim()};
+const fOk=(d)=>{d=String(d||'');if(val('fsrc','')!=='c'&&val('fper','')==='range'){const a=val('fa',today().slice(0,8)+'01'),b=val('fb',today());return(!a||d>=a)&&(!b||d<=b)}const v=fPer();return !v||d.startsWith(v)};
 const fSrc=(cyc)=>{const f=val('fsrc','');return f===''||(f==='r'&&!cyc)||(f==='c'&&!!cyc&&(val('fcyc','')===''||val('fcyc','')===String(cyc)))};
 function fClient(s){const ss=s.ss.filter(x=>fSrc(x.cycle)&&fOk(x.date));const t=sum(ss,saleTot),k=sum(ss,x=>x.kg);return fBox('c')+`<div class="cards"><div><span>مجموع الشراء (فلتر)</span><b>${money(t)}</b><small>${k} كيلو · ${ss.length} بيع</small></div><div><span>خلص ساعة البيع</span><b>${money(sum(ss,x=>x.paid||0))}</b></div></div></div>`}
 function fSup(s){const bb=s.bb.filter(b=>fSrc(0)&&fOk(b.date)),ce=s.ce.filter(e=>fSrc(e.cycle)&&fOk(e.date));const t=sum(bb,b=>b.kg*b.price)+sum(ce,e=>e.amount);return fBox('s')+`<div class="cards"><div><span>مجموع الشراء (فلتر)</span><b>${money(t)}</b><small>${sum(bb,b=>b.kg)} كيلو إعادة بيع · ${bb.length+ce.length} عملية</small></div><div><span>عطيتو ساعة الشراء</span><b>${money(sum(bb,bP0)+sum(ce,P0))}</b></div></div></div>`}
@@ -311,7 +312,7 @@ function vXexp(){const t=expTotals(D.xexp);
  h+=`<h3>المصاريف الخارجية (${D.xexp.length})</h3>`+line('المجموع',money(t.t))+line('خلصت',money(t.p))+line('باقي',money(t.t-t.p),t.t-t.p>0.005?'bad':'good');
  return h+expGroups('xexp',D.xexp,e=>e.cat,esc,e=>`${e.date}${e.note?' · '+esc(e.note):''}`)}
 const aStat=()=>{const a=aGet(),f=t=>t?new Date(t).toLocaleString('fr-MA'):'حتى مرة';return `<h3>النسخ فالهاتف</h3><p class="note">كل نهار، فاش تحل التطبيق وانت داخل للحساب، كتتسجل نسخة فهاد الهاتف (ما كتمشي لحتى بلاصة). آخر نسخة فالهاتف: ${f(a.snap)}</p><button class="main" data-a="autonow">خد نسخة فالهاتف دابا</button>${mySnaps().length?'<h3>النسخ لي فالهاتف (ديال حسابك)</h3><p class="note">كنحتفظو غير بنسخ ديال آخر 30 يوم، والأقدم كيتمسح بوحدو. اختار وحدة:</p><label>النسخة<select id="snsel">'+mySnaps().slice().reverse().map(o=>`<option value="${o.i}">${esc(AS.user)} · ${new Date(o.x.at).toLocaleString('fr-MA')}</option>`).join('')+'</select></label><button class="main sec" data-a="rsnapsel">استرجع النسخة لي اخترتي</button>':''}`};
-const APP_VER='v52';
+const APP_VER='v53';
 const updUI=()=>`<h3>🔄 تحديث التطبيق</h3><p class="note">النسخة اللي كتخدم دابا: <b dir="ltr">${APP_VER}</b>. التطبيق كيتأكد بوحدو من النسخة الجديدة. إلا بقيتي كتشوف نسخة قديمة، ضغط هنا (الداطا ديالك ما كتتمسحش).</p><button class="main sec" data-a="upd">تحديث التطبيق دابا</button>`;
 async function hardUpdate(){try{if(window.caches){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}if(navigator.serviceWorker){const rs=await navigator.serviceWorker.getRegistrations();await Promise.all(rs.map(r=>r.unregister()))}}catch(_){}location.replace(location.pathname+'?r='+Date.now())}
 async function chkVer(manual){try{const r=await fetch(location.pathname+(location.pathname.endsWith('/')?'':'')+'?c='+Date.now(),{cache:'no-store'});const t=await r.text();const m=t.match(/const APP_VER='([^']+)'/);if(!m)return false;if(m[1]===APP_VER){if(manual)flash('عندك آخر نسخة ('+APP_VER+')');return false}
@@ -476,13 +477,13 @@ document.addEventListener('click',async e=>{
   const n=val('nc').trim();if(n.length<4){flash('الكود خاصو 4 حروف ولا أرقام على الأقل');return}if(n!==val('nc2').trim()){flash('الكودين ماشي بحال بحال');return}
   const h=await hashC(n);localStorage.setItem(LH,h);clr('oc','nc','nc2');render();flash(a==='setcode'?'تفعل القفل':'تبدل الكود');return}
  if(a==='lockn'){LOCKED=true;render();return}
- if(a==='tab'){delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;pedX=null;edX=null;payX=null;sec=k;openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
- if(a==='back'){delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
+ if(a==='tab'){delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;delete F.fa;delete F.fb;pedX=null;edX=null;payX=null;sec=k;openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
+ if(a==='back'){delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;delete F.fa;delete F.fb;openCycle=openClient=openWorker=openSup=null;confirmDel=null;render();return}
  if(a==='csub'){csub=k;confirmDel=null;render();return}
  if(a==='tg'){if(OPENR.has(k))OPENR.delete(k);else OPENR.add(k);render();return}
  if(a==='rsub'){rsub=k;confirmDel=null;render();return}
  if(a==='opencyc'){openCycle=id;csub='sum';render();window.scrollTo(0,0);return}
- if(a==='opencli'){openClient=id;delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;render();window.scrollTo(0,0);return}
+ if(a==='opencli'){openClient=id;delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;delete F.fa;delete F.fb;render();window.scrollTo(0,0);return}
  if(a==='payx'){payX={k,id};delete F.px;render();return}
  if(a==='payno'){payX=null;render();return}
  if(a==='dopay'||a==='payfull'){const x=D[k].find(y=>y.id===id);if(x){const tot=k==='buys'?x.kg*x.price:x.amount,cur=k==='buys'?bP0(x):P0(x);const add=Math.min(a==='payfull'?tot-cur:num(val('px')),tot-cur);if(add<=0){flash('كتب المبلغ');return}if(!Array.isArray(x.pays))x.pays=[];x.pays.push({id:nid(x.pays),date:val('pxd',today()),amount:add});payX=null;delete F.px;delete F.pxd;save();render();flash('تسجل الخلاص')}return}
@@ -494,7 +495,7 @@ document.addEventListener('click',async e=>{
  if(a==='addclpay'){const m=num(val('pa'));if(m<=0){flash('كتب المبلغ');return}D.pays.push({id:nid(D.pays),client:id,date:val('pd',today()),amount:m});clr('pa');save();render();flash('تسجل الخلاص');return}
  if(a==='addspay'){const m=num(val('sa'));if(m<=0){flash('كتب المبلغ');return}D.spays.push({id:nid(D.spays),sid:id,date:val('sd2',today()),amount:m});clr('sa');save();render();flash('تسجل الخلاص');return}
  if(a==='pdfshare'||a==='pdfdl'){try{await doPdf(k,id,a==='pdfshare')}catch(err){flash('ما قدرناش نصاوبو PDF')}return}
- if(a==='opensup'){openSup=id;delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;const q=D.suppliers.find(y=>y.id===id)||{};F.sdt=q.kd||'g';F.sdn=q.name||'';render();window.scrollTo(0,0);return}
+ if(a==='opensup'){openSup=id;delete F.fsrc;delete F.fcyc;delete F.fper;delete F.fval;delete F.fa;delete F.fb;const q=D.suppliers.find(y=>y.id===id)||{};F.sdt=q.kd||'g';F.sdn=q.name||'';render();window.scrollTo(0,0);return}
  if(a==='openwrk'){openWorker=id;render();window.scrollTo(0,0);return}
  if(a==='setday'){F.rdy=k;render();return}
  if(a==='space'){loadSpace(k);render();window.scrollTo(0,0);return}
