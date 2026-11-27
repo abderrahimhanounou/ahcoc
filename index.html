@@ -247,8 +247,8 @@ const scopeSel=()=>S('pcs','فين تسجل الخلاص',[['r','إعادة ال
 const pdfBox=(who,id)=>`<h3>كشف حساب PDF</h3><p class="note">اختار الفترة (اختياري) وصيفطو.</p>${I('pf','من تاريخ',{type:'date'})}${I('pt','إلى تاريخ',{type:'date'})}<button class="main" data-a="pdfshare" data-k="${who}" data-id="${id}">إنشاء PDF ومشاركته</button><button class="main sec" data-a="pdfdl" data-k="${who}" data-id="${id}">تنزيل PDF</button>`;
 
 function fBox(kind){const src=val('fsrc',''),per=val('fper','');const cs=D.cycles||[];
- const so=[['','الكل (الدورات + إعادة البيع)'],['r','إعادة البيع فقط'],['c','الدورات فقط']];
- let ch='';if(src==='c')ch=cs.length?S('fcyc','اختار الدورة',[['','كل الدورات']].concat(cs.map(c=>[String(c.id),c.name])),1):'<p class="note">ما كاين حتى دورة فهاد القسم ('+esc(SP?SP[1]:'')+').</p>';
+ const so=[['','الكل (الدورات + إعادة البيع)'],['r','إعادة البيع فقط'],['c','الدورات']];
+ let ch='';if(src==='c')ch=cs.length?S('fcyc','اختار الدورة',[['','جميع الدورات']].concat(cs.map(c=>[String(c.id),c.name])),1):'<p class="note">ما كاين حتى دورة فهاد القسم ('+esc(SP?SP[1]:'')+').</p>';
  let vh='';if(per==='day')vh=I('fval','النهار',{type:'date',def:today()});else if(per==='month')vh=I('fval','الشهر',{type:'month',def:today().slice(0,7)});else if(per==='year')vh=I('fval','العام',{num:1,def:today().slice(0,4)});
  return `<h3>فلتر</h3><div class="card">${S('fsrc','المصدر',so,1)}${ch}${S('fper','الفترة',[['','كل الوقت'],['day','نهار محدد'],['month','شهر محدد'],['year','عام محدد']],1)}${vh.replace('data-f','data-f data-rr')}`}
 const fPer=()=>{const p=val('fper','');if(!p)return'';const v=String(val('fval',p==='day'?today():p==='month'?today().slice(0,7):today().slice(0,4))).trim();return v};
@@ -311,7 +311,7 @@ function vXexp(){const t=expTotals(D.xexp);
  h+=`<h3>المصاريف الخارجية (${D.xexp.length})</h3>`+line('المجموع',money(t.t))+line('خلصت',money(t.p))+line('باقي',money(t.t-t.p),t.t-t.p>0.005?'bad':'good');
  return h+expGroups('xexp',D.xexp,e=>e.cat,esc,e=>`${e.date}${e.note?' · '+esc(e.note):''}`)}
 const aStat=()=>{const a=aGet(),f=t=>t?new Date(t).toLocaleString('fr-MA'):'حتى مرة';return `<h3>النسخ فالهاتف</h3><p class="note">كل نهار، فاش تحل التطبيق وانت داخل للحساب، كتتسجل نسخة فهاد الهاتف (ما كتمشي لحتى بلاصة). آخر نسخة فالهاتف: ${f(a.snap)}</p><button class="main" data-a="autonow">خد نسخة فالهاتف دابا</button>${mySnaps().length?'<h3>النسخ لي فالهاتف (ديال حسابك)</h3><p class="note">كنحتفظو غير بنسخ ديال آخر 30 يوم، والأقدم كيتمسح بوحدو. اختار وحدة:</p><label>النسخة<select id="snsel">'+mySnaps().slice().reverse().map(o=>`<option value="${o.i}">${esc(AS.user)} · ${new Date(o.x.at).toLocaleString('fr-MA')}</option>`).join('')+'</select></label><button class="main sec" data-a="rsnapsel">استرجع النسخة لي اخترتي</button>':''}`};
-const APP_VER='v51';
+const APP_VER='v52';
 const updUI=()=>`<h3>🔄 تحديث التطبيق</h3><p class="note">النسخة اللي كتخدم دابا: <b dir="ltr">${APP_VER}</b>. التطبيق كيتأكد بوحدو من النسخة الجديدة. إلا بقيتي كتشوف نسخة قديمة، ضغط هنا (الداطا ديالك ما كتتمسحش).</p><button class="main sec" data-a="upd">تحديث التطبيق دابا</button>`;
 async function hardUpdate(){try{if(window.caches){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}if(navigator.serviceWorker){const rs=await navigator.serviceWorker.getRegistrations();await Promise.all(rs.map(r=>r.unregister()))}}catch(_){}location.replace(location.pathname+'?r='+Date.now())}
 async function chkVer(manual){try{const r=await fetch(location.pathname+(location.pathname.endsWith('/')?'':'')+'?c='+Date.now(),{cache:'no-store'});const t=await r.text();const m=t.match(/const APP_VER='([^']+)'/);if(!m)return false;if(m[1]===APP_VER){if(manual)flash('عندك آخر نسخة ('+APP_VER+')');return false}
