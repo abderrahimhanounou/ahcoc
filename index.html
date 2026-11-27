@@ -38,20 +38,58 @@ input[type=date]{-webkit-appearance:none;appearance:none;display:block;box-sizin
 <script>
 const SPACES=[['dajaj','الدجاج','🐔','chicken.data.v2'],['roki','الديك الرومي','🦃','chicken.data.roki']];
 let SP=null,KEY='';
-const emptyD=()=>({clients:[],workers:[],cycles:[],cexp:[],sales:[],pays:[],rexp:[],buys:[],suppliers:[],stypes:[],stseed:0,spays:[],xexp:[],wpays:[],lastBackup:0});
+const emptyD=()=>({clients:[],workers:[],cycles:[],cexp:[],sales:[],pays:[],rexp:[],buys:[],suppliers:[],stypes:[],stseed:0,spays:[],xexp:[],wpays:[],gone:[],kg:[],lastBackup:0});
 let D=emptyD();
 let edX=null;let openSup=null;let payX=null;let sec='home',openCycle=null,csub='sum',rsub='sum',openClient=null,openWorker=null,confirmDel=null;
+
+const CL=['clients','workers','suppliers'];
+const nrmN=s=>String(s||'').normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase();
+const newGid=()=>Math.random().toString(36).slice(2,10)+Date.now().toString(36);
+let RECON=false;
+function readOther(sp){try{const r=localStorage.getItem(sp[3]);if(!r)return null;const d=Object.assign(emptyD(),JSON.parse(r));['clients','workers','suppliers','stypes','gone','kg'].forEach(k=>{if(!Array.isArray(d[k]))d[k]=[]});return d}catch(_){return null}}
+function reconcile(){
+ if(RECON||!SP)return false;const osp=SPACES.find(x=>x[0]!==SP[0]);const Y=readOther(osp);if(!Y)return false;
+ RECON=true;let cx=false,cy=false;
+ try{
+  ['gone','kg'].forEach(k=>{if(!Array.isArray(D[k]))D[k]=[]});
+  const gids=A=>new Set(CL.flatMap(l=>A[l].map(r=>r.gid).filter(Boolean)));
+  // 1) deletions: gids this space knew about that are now gone
+  [[D,'x'],[Y,'y']].forEach(([A,w])=>{const have=gids(A);A.kg.forEach(g=>{if(!have.has(g)&&!A.gone.includes(g)){A.gone.push(g);if(w==='x')cx=true;else cy=true}})});
+  const mapT=(r,from,to)=>{if(r.tid==null)return undefined;const t=from.stypes.find(z=>z.id===r.tid);const m=t&&to.stypes.find(z=>nrmN(z.name)===nrmN(t.name));return m?m.id:undefined};
+  const copy=(r,from,to,L)=>{const o=Object.assign({},r);o.id=to[L].reduce((m,x)=>Math.max(m,x.id),0)+1;o.sn=r.name;if(L==='suppliers'){const t=mapT(r,from,to);if(t===undefined)delete o.tid;else o.tid=t}return o};
+  for(const L of CL){
+   const X=D[L],YL=Y[L];
+   // 2) link same-name contacts that have no link yet
+   const linkSide=(A,B,wA,wB)=>{const aL=A[L],bL=B[L];const bg=new Set(bL.map(r=>r.gid).filter(Boolean));const ag=new Set(aL.map(r=>r.gid).filter(Boolean));const taken=new Set();
+    aL.filter(r=>!r.gid).forEach(a=>{const m=bL.find(b=>!taken.has(b)&&nrmN(b.name)===nrmN(a.name)&&(!b.gid||!ag.has(b.gid)));if(m){taken.add(m);if(!m.gid){m.gid=newGid();if(wB==='x')cx=true;else cy=true}a.gid=m.gid;a.sn=a.name;m.sn=m.name;A.gone=A.gone.filter(g=>g!==a.gid);B.gone=B.gone.filter(g=>g!==a.gid);ag.add(a.gid)}else{a.gid=newGid()}if(wA==='x')cx=true;else cy=true})};
+   linkSide(D,Y,'x','y');linkSide(Y,D,'y','x');
+   // 3) rename sync for linked pairs
+   X.forEach(x=>{if(x.sn===undefined){x.sn=x.name;cx=true}});YL.forEach(y=>{if(y.sn===undefined){y.sn=y.name;cy=true}});
+   X.forEach(x=>{const y=YL.find(r=>r.gid===x.gid);if(!y)return;const xc=x.sn!==undefined&&x.name!==x.sn,yc=y.sn!==undefined&&y.name!==y.sn;
+    if(yc&&!xc){x.name=y.name;cx=true}else if(xc&&!yc){y.name=x.name;cy=true}
+    if(x.sn!==x.name){x.sn=x.name;cx=true}if(y.sn!==y.name){y.sn=y.name;cy=true}});
+   // 4) mirror contacts the other space does not have (unless deleted there)
+   const yg=new Set(YL.map(r=>r.gid)),xg=new Set(X.map(r=>r.gid));
+   X.forEach(x=>{if(!yg.has(x.gid)&&!Y.gone.includes(x.gid)){YL.push(copy(x,D,Y,L));cy=true}});
+   YL.slice().forEach(y=>{if(!xg.has(y.gid)&&!D.gone.includes(y.gid)){X.push(copy(y,Y,D,L));cx=true}});
+  }
+  // 5) remember what each space has now
+  [[D,'x'],[Y,'y']].forEach(([A,w])=>{const k=[...gids(A)];if(k.length!==A.kg.length||k.some(g=>!A.kg.includes(g))){A.kg=k;if(w==='x')cx=true;else cy=true}});
+  if(cx){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(_){}if(typeof AS!=='undefined'&&AS)svSet(SP[0],{dirty:1})}
+  if(cy){try{localStorage.setItem(osp[3],JSON.stringify(Y))}catch(_){}if(typeof AS!=='undefined'&&AS){svSet(osp[0],{dirty:1});clearTimeout(pushT);pushT=setTimeout(syncAll,2500)}}
+ }catch(e){}
+ RECON=false;return true}
 function loadSpace(id){SP=SPACES.find(x=>x[0]===id);KEY=SP[3];D=emptyD();
 try{const r=localStorage.getItem(KEY);if(r)D=Object.assign(D,JSON.parse(r));else if(id==='dajaj'){const o=localStorage.getItem('chicken.data.v1');if(o){const x=JSON.parse(o);D.clients=x.clients||[];D.sales=(x.sales||[]).map(s=>({...s,paid:0,cycle:null}));D.pays=(x.pays||[]).map(p=>({...p,cycle:null}));D.rexp=(x.exps||[]).map(e=>({id:e.id,date:e.date,cat:'أخرى',amount:e.amount,note:(e.cat+' '+(e.note||'')).trim()}));}}}catch(e){}
-['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','spays','xexp','wpays'].forEach(k=>{if(!Array.isArray(D[k]))D[k]=[]});
+['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','spays','xexp','wpays','gone','kg'].forEach(k=>{if(!Array.isArray(D[k]))D[k]=[]});
 function seedT(){if(!D.stseed){D.stseed=1;['كتكوت','علف','غاز البوطان'].forEach((n,i)=>D.stypes.push({id:i+1,name:n}));const tk=n=>D.stypes.find(t=>t.name===n).id;D.suppliers.forEach(x=>{if(x.tid==null){const c=D.cexp.filter(e=>e.sid===x.id).map(e=>e.cat);if(c.includes('chick'))x.tid=tk('كتكوت');else if(c.includes('feed'))x.tid=tk('علف')}})}}
 seedT();
 D.buys.forEach(b=>{if(!b.sid){let s=D.suppliers.find(x=>x.name===b.supplier);if(!s){s={id:D.suppliers.reduce((m,x)=>Math.max(m,x.id),0)+1,name:b.supplier};D.suppliers.push(s)}b.sid=s.id}});
 D.suppliers.forEach(x=>{if(x.kd!=='g'&&x.kd!=='p')x.kd=D.buys.some(b=>b.sid===x.id)?'p':'g'});
-migrate();sec='home';openCycle=openClient=openWorker=openSup=null;edX=null;payX=null;confirmDel=null;for(const k in F)delete F[k]}
+migrate();reconcile();sec='home';openCycle=openClient=openWorker=openSup=null;edX=null;payX=null;confirmDel=null;for(const k in F)delete F[k]}
 const F={};
 const $=s=>document.querySelector(s);
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){flash('ما قدرناش نسجلو الداتا!')}if(typeof AS!=='undefined'&&AS&&SP){svSet(SP[0],{dirty:1});clearTimeout(pushT);pushT=setTimeout(syncAll,2500)}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){flash('ما قدرناش نسجلو الداتا!')}try{reconcile()}catch(_){}if(typeof AS!=='undefined'&&AS&&SP){svSet(SP[0],{dirty:1});clearTimeout(pushT);pushT=setTimeout(syncAll,2500)}};
 const today=()=>new Date().toISOString().slice(0,10);
 const num=s=>{const n=parseFloat(String(s==null?'':s).replace(',','.'));return isFinite(n)?n:0};
 const money=n=>'\u2066'+(Math.round(n*100)/100)+' DH\u2069';
@@ -72,7 +110,7 @@ const S=(id,label,opts,rr)=>`<label>${label}<select id="${id}" data-f ${rr?'data
 const clientSel=(id,lab='الزبون')=>S(id,lab,[['','اختار الزبون'],...D.clients.map(c=>[c.id,c.name])]);
 const workerSel=(id,role,lab)=>S(id,lab,[['','اختار'],...D.workers.filter(w=>w.role===role).map(w=>[w.id,w.name])],1);
 const TOT=(id,a,b)=>`<p>المجموع: <b id="${id}" data-a1="${a}" data-a2="${b}">${money(num(val(a))*num(val(b)))}</b></p>`;
-const del=(k,id,msg)=>confirmDel===k+id?`<div class="warn">${msg||'متأكد بغيتي تمسح؟'}<br><button class="lnk red" data-a="del" data-k="${k}" data-id="${id}">أكيد، مسح</button> <button class="lnk" data-a="nodel">لا</button></div>`:`<button class="lnk" data-a="askdel" data-k="${k}" data-id="${id}">مسح</button>`;
+const del=(k,id,msg)=>confirmDel===k+id?`<div class="warn">${msg||'متأكد بغيتي تمسح؟'}${(k==='clients'||k==='workers'||k==='suppliers')?'<br><small>كيتمسح غير فهاد القسم (فالقسم الآخر كيبقى).</small>':''}<br><button class="lnk red" data-a="del" data-k="${k}" data-id="${id}">أكيد، مسح</button> <button class="lnk" data-a="nodel">لا</button></div>`:`<button class="lnk" data-a="askdel" data-k="${k}" data-id="${id}">مسح</button>`;
 const OPENR=new Set();
 const fold=(key,title,sub,full)=>OPENR.has(key)?`<div class="foldbox"><button class="row foldh" data-a="tg" data-k="${key}"><span><b>${title}</b>${sub?` <small>${sub}</small>`:''}</span><b>⌃</b></button>${full}</div>`:`<button class="row foldh" data-a="tg" data-k="${key}"><span><b>${title}</b>${sub?` <small>${sub}</small>`:''}</span><b>⌄</b></button>`;
 const item=(t,sub,right,extra='')=>`<div class="item"><div><b>${t}</b><small>${sub}</small></div><div><b>${right}</b>${extra}</div></div>`;
@@ -262,7 +300,7 @@ function vXexp(){const t=expTotals(D.xexp);
  h+=`<h3>المصاريف الخارجية (${D.xexp.length})</h3>`+line('المجموع',money(t.t))+line('خلصت',money(t.p))+line('باقي',money(t.t-t.p),t.t-t.p>0.005?'bad':'good');
  return h+expGroups('xexp',D.xexp,e=>e.cat,esc,e=>`${e.date}${e.note?' · '+esc(e.note):''}`)}
 const aStat=()=>{const a=aGet(),f=t=>t?new Date(t).toLocaleString('fr-MA'):'حتى مرة';return `<h3>النسخ فالهاتف</h3><p class="note">كل نهار، فاش تحل التطبيق وانت داخل للحساب، كتتسجل نسخة فهاد الهاتف (ما كتمشي لحتى بلاصة). آخر نسخة فالهاتف: ${f(a.snap)}</p><button class="main" data-a="autonow">خد نسخة فالهاتف دابا</button>${mySnaps().length?'<h3>النسخ لي فالهاتف (ديال حسابك)</h3><p class="note">كنحتفظو غير بنسخ ديال آخر 30 يوم، والأقدم كيتمسح بوحدو. اختار وحدة:</p><label>النسخة<select id="snsel">'+mySnaps().slice().reverse().map(o=>`<option value="${o.i}">${esc(AS.user)} · ${new Date(o.x.at).toLocaleString('fr-MA')}</option>`).join('')+'</select></label><button class="main sec" data-a="rsnapsel">استرجع النسخة لي اخترتي</button>':''}`};
-const APP_VER='v47';
+const APP_VER='v48';
 const updUI=()=>`<h3>🔄 تحديث التطبيق</h3><p class="note">النسخة اللي كتخدم دابا: <b dir="ltr">${APP_VER}</b>. التطبيق كيتأكد بوحدو من النسخة الجديدة. إلا بقيتي كتشوف نسخة قديمة، ضغط هنا (الداطا ديالك ما كتتمسحش).</p><button class="main sec" data-a="upd">تحديث التطبيق دابا</button>`;
 async function hardUpdate(){try{if(window.caches){const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}if(navigator.serviceWorker){const rs=await navigator.serviceWorker.getRegistrations();await Promise.all(rs.map(r=>r.unregister()))}}catch(_){}location.replace(location.pathname+'?r='+Date.now())}
 async function chkVer(manual){try{const r=await fetch(location.pathname+(location.pathname.endsWith('/')?'':'')+'?c='+Date.now(),{cache:'no-store'});const t=await r.text();const m=t.match(/const APP_VER='([^']+)'/);if(!m)return false;if(m[1]===APP_VER){if(manual)flash('عندك آخر نسخة ('+APP_VER+')');return false}
@@ -339,7 +377,7 @@ function render(){setTimeout(()=>autoBackup(false),300);
  h+=({home:vHome,cyc:vCycles,res:vResale,cli:vClients,wrk:vWorkers,sup:vSuppliers,xex:vXexp,bk:vBackup})[sec]();
  const y=window.scrollY;$('#app').innerHTML=h+foot();window.scrollTo(0,y);}
 const backupObj=()=>({app:'chicken',v:4,space:SP[0],at:new Date().toISOString(),data:{clients:D.clients,workers:D.workers,cycles:D.cycles,cexp:D.cexp,sales:D.sales,pays:D.pays,rexp:D.rexp,buys:D.buys,suppliers:D.suppliers,stypes:D.stypes,stseed:D.stseed,spays:D.spays,xexp:D.xexp,wpays:D.wpays}});
-const pickD=d=>{const o={};['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','stseed','spays','xexp','wpays'].forEach(k=>{o[k]=d[k]});return o};
+const pickD=d=>{const o={};['clients','workers','cycles','cexp','sales','pays','rexp','buys','suppliers','stypes','stseed','spays','xexp','wpays','gone','kg'].forEach(k=>{o[k]=d[k]});return o};
 const allObj=()=>{const spaces={};SPACES.forEach(sp=>{let d=emptyD();try{const r=localStorage.getItem(sp[3]);if(r)d=Object.assign(d,JSON.parse(r))}catch(_){}if(SP&&sp[0]===SP[0])d=D;spaces[sp[0]]=pickD(d)});return {app:'chicken',v:5,at:new Date().toISOString(),user:AS?AS.user:'',spaces}};
 const backupFile=()=>{const n=new Date(),hm=String(n.getHours()).padStart(2,'0')+String(n.getMinutes()).padStart(2,'0');return new File([JSON.stringify(allObj())],`backup-${AS?AS.user+'-':''}${today()}-${hm}.json`,{type:'application/json'})};
 
